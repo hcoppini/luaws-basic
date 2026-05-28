@@ -3,17 +3,22 @@ export default function middleware(req) {
   const url = new URL(req.url);
   const hostname = req.headers.get('host') || '';
 
-  // Remove main domains to extract the subdomain slug
-  const subdomain = hostname
-    .replace('.luaws.pl', '')
-    .replace('.smagiel.pl', '')
-    .replace('.vercel.app', '')
-    .replace('www.', '')
-    .trim();
-
-  // If there is a valid subdomain, rewrite the request path to point into the slug subfolder
-  if (subdomain && subdomain !== 'localhost:3000' && subdomain !== 'localhost:5000') {
-    url.pathname = `/${subdomain}${url.pathname}`;
-    return Response.redirect(url); // Or use Vercel's rewrite headers
+  // Only rewrite if we are on one of our configured custom domains with an actual subdomain
+  const match = hostname.match(/^([^.]+)\.(luaws\.pl|smagiel\.pl)$/);
+  
+  if (match) {
+    const subdomain = match[1].toLowerCase();
+    
+    // Ignore common subdomains or www
+    if (subdomain !== 'www' && subdomain !== 'api') {
+      if (!url.pathname.startsWith(`/${subdomain}`)) {
+        url.pathname = `/${subdomain}${url.pathname}`;
+        return new Response(null, {
+          headers: {
+            'x-middleware-rewrite': url.toString()
+          }
+        });
+      }
+    }
   }
 }
