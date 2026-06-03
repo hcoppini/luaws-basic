@@ -4,7 +4,7 @@ export default function middleware(req) {
   const hostname = req.headers.get('host') || '';
 
   // Only rewrite if we are on one of our configured custom domains with an actual subdomain
-  const match = hostname.match(/^([^.]+)\.(preview\.luaws\.pl|luaws\.pl|smagiel\.pl)$/);
+  const match = hostname.match(/^([^.]+)\.(preview\.luaws\.pl|luaws\.pl|business\.smagiel\.pl|smagiel\.pl)$/);
   
   if (match) {
     const subdomain = match[1].toLowerCase();
