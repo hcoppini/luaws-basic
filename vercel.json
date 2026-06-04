@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/:match*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<subdomain>[^.]+)\\.preview\\.luaws\\.pl"
+        }
+      ],
+      "destination": "/:subdomain/:match*"
+    },
+    {
+      "source": "/:match*",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<subdomain>[^.]+)\\.smagiel\\.pl"
+        }
+      ],
+      "destination": "/:subdomain/:match*"
+    }
+  ]
+}
