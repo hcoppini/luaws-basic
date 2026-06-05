@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serwis klimatyzacji | Profesjonalne Rozwiązania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090A0C;
+            --card: #111318;
+            --border: rgba(255, 255, 255, 0.08);
+            --primary: #6366F1; /* Indigo glow */
+            --primary-rgb: 99, 102, 241;
+            --text: #F3F4F6;
+            --text-muted: #9CA3AF;
+        }
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .display { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            letter-spacing: -0.03em;
+        }
+        .reveal { opacity: 0; transform: translateY(30px); }
+        
+        /* Modern Glass Card Backings */
+        .glass-card {
+            background: rgba(17, 19, 24, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        /* Dot Grid Tech Pattern overlay */
+        .grid-overlay {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        /* Premium navigation blur backing */
+        .navbar-blur {
+            background: rgba(9, 10, 12, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body class="grid-overlay relative">
+
+    <!-- Glowing Background Orbs for Deep Space Vibe -->
+    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-600/10 blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[20%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 navbar-blur py-5 px-6 md:px-12 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-indigo-600/30">
+                    <i data-lucide="layers" class="w-5 h-5"></i>
+                </div>
+                <div class="display text-xl font-bold tracking-tight text-white uppercase">Serwis klimatyzacji</div>
+            </div>
+            <a href="tel:729 698 932" class="inline-flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition duration-300">
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-indigo-400"></i>
+                729 698 932
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-44 pb-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center relative z-10">
+        <div class="max-w-4xl">
+            <div class="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-8 reveal">
+                <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                <span class="text-[10px] font-semibold uppercase tracking-[0.2em] text-indigo-400">Gotowy na rozwój</span>
+            </div>
+            <h1 class="display text-5xl md:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8 text-white reveal">
+                Nowy wymiar <br> <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">Serwis klimatyzacji.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed mb-12 max-w-2xl reveal">
+                Świadczymy najwyższej jakości usługi oparte na wieloletnim doświadczeniu i nowoczesnych rozwiązaniach. Dbamy o zadowolenie każdego klienta, oferując pełne zaangażowanie i terminowość.
+            </p>
+            <div class="flex flex-wrap gap-5 reveal">
+                <a href="#oferta" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold transition duration-300 shadow-lg shadow-indigo-600/20 transform hover:-translate-y-0.5">Nasza Oferta</a>
+                <a href="tel:729 698 932" class="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-xl font-bold transition duration-300 transform hover:-translate-y-0.5">Zadzwoń teraz</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="oferta" class="py-32 px-6 md:px-12 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-2xl mb-20 reveal">
+                <div class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Zakres Działań</div>
+                <h2 class="display text-4xl md:text-5xl font-bold text-white mb-6">Usługi Skrojone pod Twój Biznes</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    Stawiamy na nowoczesność, jakość i precyzyjne dopasowanie rozwiązań. Sprawdź, w czym możemy Ci pomóc.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+            <div class="p-8 bg-white border border-gray-100 rounded-xl shadow-sm reveal">
+                <div class="w-12 h-12 rounded-lg accent-bg flex items-center justify-center mb-6">
+                    <i data-lucide="check" class="text-white w-6 h-6"></i>
+                </div>
+                <h3 class="display text-2xl font-bold mb-4">Indywidualne podejście</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Każde zlecenie traktujemy wyjątkowo, dostosowując ofertę bezpośrednio do Twoich wymagań.</p>
+            </div>
+            <div class="p-8 bg-white border border-gray-100 rounded-xl shadow-sm reveal">
+                <div class="w-12 h-12 rounded-lg accent-bg flex items-center justify-center mb-6">
+                    <i data-lucide="shield" class="text-white w-6 h-6"></i>
+                </div>
+                <h3 class="display text-2xl font-bold mb-4">Gwarancja jakości</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Stosujemy wyłącznie sprawdzone materiały i procedury gwarantujące trwałość.</p>
+            </div>
+        
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-7 reveal">
+                <div class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Nasza Tożsamość</div>
+                <h2 class="display text-4xl md:text-5xl font-bold text-white mb-8">Profesjonalizm w Każdym Detalu</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                    Nasza misja to dostarczanie niezawodnych usług dopasowanych do indywidualnych potrzeb. Wybór naszej firmy to gwarancja profesjonalizmu, rzetelności oraz najwyższych standardów wykonania w każdym detalu.
+                </p>
+                <div class="p-8 bg-white/[0.02] border-l-2 border-indigo-500 rounded-r-2xl italic text-gray-300 text-lg leading-relaxed relative overflow-hidden">
+                    <span class="absolute top-2 right-4 text-7xl font-serif text-white/5 pointer-events-none">“</span>
+                    "Sukces to nie dzieło przypadku, to efekt ciężkiej pracy i pasji do tego, co robimy."
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative reveal">
+                <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" 
+                         class="w-full h-full object-cover transition duration-700 scale-105 group-hover:scale-100" alt="Biuro">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section class="py-32 px-6 md:px-12 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-5 reveal">
+                <h2 class="display text-4xl md:text-5xl font-bold text-white mb-12">Skontaktuj się</h2>
+                <div class="space-y-8">
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-indigo-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400 uppercase tracking-widest mb-1">Nasza Siedziba</div>
+                            <div class="text-lg font-bold text-white">Zakole 44A, 20-502 Lublin, Poland, Lublin</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i data-lucide="clock" class="w-6 h-6 text-indigo-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400 uppercase tracking-widest mb-1">Godziny Pracy</div>
+                            <div class="text-lg font-bold text-white">Poniedziałek - Piątek: 08:00 - 18:00</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i data-lucide="phone" class="w-6 h-6 text-indigo-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400 uppercase tracking-widest mb-1">Zadzwoń bezpośrednio</div>
+                            <a href="tel:729 698 932" class="text-3xl font-extrabold text-white hover:text-indigo-400 transition">729 698 932</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-7 h-[450px] rounded-3xl overflow-hidden reveal border border-white/10 shadow-2xl relative">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    style="border:0; filter: invert(90%) hue-rotate(180deg);" 
+                    src="https://maps.google.com/maps?q=Zakole 44A, 20-502 Lublin, Poland,Lublin&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 md:px-12 bg-black/40 text-gray-500 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="display text-xl font-bold text-white uppercase tracking-tight">Serwis klimatyzacji</div>
+            <div class="text-sm font-light text-gray-400">Twój zaufany partner w biznesie i na co dzień.</div>
+            <div class="text-xs uppercase tracking-widest">&copy; 2026 Serwis klimatyzacji &mdash; Wszelkie prawa zastrzeżone.</div>
+        </div>
+    </footer>
+
+    <!-- Claim Website Banner -->
+    <div class="fixed bottom-0 w-full z-[100] bg-indigo-600 border-t border-indigo-700 shadow-[0_-10px_40px_rgba(99,102,241,0.3)]">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-white">
+                <span class="font-bold text-lg block sm:inline">Odbierz tę stronę dla swojej firmy!</span>
+                <span class="text-indigo-200 text-sm sm:ml-2">Gotowa do działania. Aktywacja w 24h.</span>
+            </div>
+            <a href="https://buy.stripe.com/eVqeVc6gW2F23no0Hic7u03" class="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-0.5">
+                Kupuję stronę (250 PLN + 50 PLN/mies.)
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".reveal").forEach(elem => {
+            gsap.to(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 95%",
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            });
+        });
+    </script>
+
+</body>
+</html>
