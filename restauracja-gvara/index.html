@@ -1,219 +1,212 @@
 <!DOCTYPE html>
+
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restauracja Gvara | Doskonałość Kulinarna</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0A0A0A;
-            --card: #121212;
-            --accent: #E11D48; /* Terracotta / Rose Accent */
-            --border: rgba(255, 255, 255, 0.05);
-            --text-light: #F3F4F6;
-        }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Restauracja Gvara | Wyjątkowe Smaki</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
         body { 
-            background-color: var(--bg); 
-            color: var(--text-light);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
             overflow-x: hidden;
         }
-        h1, h2, h3, h4, .serif { 
-            font-family: 'Fraunces', serif; 
-            letter-spacing: -0.02em;
-        }
-        
-        .reveal { opacity: 0; transform: translateY(40px); }
-        
-        .hero-title {
-            font-size: clamp(3.5rem, 12vw, 10rem);
-            line-height: 0.85;
-            letter-spacing: -0.04em;
-        }
-
-        .menu-category-divider {
-            position: relative;
-        }
-        .menu-category-divider::after {
-            content: "";
-            position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 1px;
-            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
-            opacity: 0.2;
-        }
-
-        /* Top colored aesthetic line */
-        .header-accent-line {
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent) 0%, #FDA4AF 100%);
-            width: 100%;
-            position: fixed;
-            top: 0; left: 0;
-            z-index: 100;
-        }
+        .serif { font-family: 'Playfair Display', serif; }
+        .reveal { opacity: 0; transform: translateY(30px); }
         
         .navbar-blur {
-            background: rgba(10, 10, 10, 0.75);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ea580c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
     </style>
 </head>
-<body class="relative">
-
-    <!-- Top Accent Bar -->
-    <div class="header-accent-line"></div>
-
-    <!-- Glowing Orbs -->
-    <div class="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-rose-950/10 blur-[130px] pointer-events-none"></div>
-    <div class="absolute bottom-[20%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-rose-900/5 blur-[120px] pointer-events-none"></div>
-
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 navbar-blur flex justify-between items-center px-8 md:px-12 py-5 mt-[5px] transition-all duration-300">
-        <div class="serif text-2xl md:text-3xl font-bold tracking-tight text-white italic">Restauracja Gvara</div>
-        <a href="tel:795 889 288" class="inline-flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition duration-300">
-            <i data-lucide="phone" class="w-3.5 h-3.5 text-rose-400"></i>
-            795 889 288
-        </a>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="min-h-[90vh] pt-40 px-8 md:px-12 flex flex-col justify-between relative z-10">
-        <div class="relative">
-            <h1 class="hero-title serif font-bold reveal text-white leading-none mb-10">
-                Wykwintna <br> <span class="italic pl-16 md:pl-32 text-rose-500 bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-rose-200">Kuchnia.</span>
-            </h1>
-            <div class="absolute right-0 top-4 hidden lg:block reveal" style="transition-delay: 0.2s;">
-                <p class="max-w-[300px] text-sm leading-relaxed text-gray-400 uppercase tracking-wider">
-                    Zapraszamy w podróż pełną wyrafinowanych smaków i aromatów. Nasza kuchnia łączy tradycyjne polskie receptury z nowoczesnymi technikami kulinarnymi, tworząc dania, które zachwycają.
-                </p>
-            </div>
-        </div>
-
-        <div class="grid lg:grid-cols-12 gap-12 py-12 items-center border-t border-white/5 mt-16">
-            <div class="lg:col-span-7 overflow-hidden rounded-2xl border border-white/5 shadow-2xl reveal">
-                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80" 
-                     class="w-full aspect-[16/9] object-cover transition duration-1000 hover:scale-102" alt="Szef kuchni">
-            </div>
-            <div class="lg:col-span-5 reveal flex flex-col justify-center">
-                <h2 class="serif text-3xl md:text-4xl italic mb-6 text-rose-200 leading-tight">Sztuka Kulinarna i Niezapomniane Smaki</h2>
-                <div class="h-[2px] w-16 bg-rose-500/40 mb-6"></div>
-                <p class="text-xs text-stone-400 uppercase tracking-widest leading-relaxed">Założono w 2026 &mdash; Gdańsk</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="py-32 bg-[#080808] text-gray-100 px-8 md:px-12 relative z-10 border-y border-white/5">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-24 reveal">
-                <span class="text-xs uppercase tracking-[0.4em] text-rose-400 font-bold">Sezonowe Smaki</span>
-                <h3 class="serif text-5xl md:text-6xl mt-4">Karta Dań</h3>
-            </div>
-
-            <div class="space-y-20">
-                
-            <div class="reveal">
-                <h4 class="serif text-4xl mb-8 italic text-orange-600">Przystawki</h4>
-                <div class="space-y-8">
-                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
-                        <div>
-                            <span class="serif text-2xl font-bold">Tatar wołowy z leśnymi grzybami</span>
-                            <p class="text-xs text-stone-400 mt-2">Siekana polędwica wołowa, marynowane rydze, szalotka, żółtko przepiórcze.</p>
-                        </div>
-                        <span class="serif text-xl font-bold">49 zł</span>
-                    </div>
-                </div>
-            </div>
-            <div class="reveal mt-16">
-                <h4 class="serif text-4xl mb-8 italic text-orange-600">Dania Główne</h4>
-                <div class="space-y-8">
-                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
-                        <div>
-                            <span class="serif text-2xl font-bold">Pieczona kaczka w sosie śliwkowym</span>
-                            <p class="text-xs text-stone-400 mt-2">Chrupiące udo kaczki, kluski śląskie, karmelizowana czerwona kapusta.</p>
-                        </div>
-                        <span class="serif text-xl font-bold">78 zł</span>
-                    </div>
-                </div>
-            </div>
-        
-            </div>
-
-            <div class="mt-28 text-center reveal border-t border-white/5 pt-16">
-                 <p class="serif italic text-2xl md:text-3xl text-rose-200 max-w-xl mx-auto leading-relaxed">
-                    "Gotowanie to język, którym wyrażamy pasję, miłość i szacunek do natury."
-                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map & Location -->
-    <section class="py-32 px-8 md:px-12 relative z-10">
-        <div class="grid lg:grid-cols-12 gap-16 items-center">
-            <div class="lg:col-span-5 reveal">
-                <div class="text-xs uppercase tracking-widest text-rose-400 font-bold mb-3">Rezerwacje & Kontakt</div>
-                <h3 class="serif text-5xl mb-12 italic text-white">Znajdź nas</h3>
-                <div class="space-y-8">
-                    <div>
-                        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-2">Lokalizacja</div>
-                        <div class="serif text-2xl font-bold">Chlebnicka 48/51, 80-830 Gdańsk, Poland, Gdańsk</div>
-                    </div>
-                    <div>
-                        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-2">Godziny Otwarcia</div>
-                        <div class="serif text-2xl font-bold">Wtorek - Niedziela: 12:00 - 22:00 | Poniedziałek: Zamknięte</div>
-                    </div>
-                    <div class="pt-4">
-                        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-2">Telefon rezerwacyjny</div>
-                        <a href="tel:795 889 288" class="serif text-4xl font-extrabold text-rose-400 hover:text-rose-300 transition">795 889 288</a>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-7 h-[480px] rounded-3xl overflow-hidden border border-white/5 shadow-2xl relative">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    style="border:0; filter: invert(90%) hue-rotate(180deg);" 
-                    src="https://maps.google.com/maps?q=Chlebnicka 48/51, 80-830 Gdańsk, Poland,Gdańsk&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 px-8 md:px-12 bg-black/40 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
-        <div class="max-w-md">
-            <div class="serif text-3xl font-bold mb-3 text-white italic">Restauracja Gvara</div>
-            <p class="text-xs text-stone-400 uppercase tracking-widest">
-                Serce naszej pasji na Twoim talerzu.
-            </p>
-        </div>
-        <div class="text-[10px] tracking-[0.4em] uppercase text-stone-600">
-            &copy; 2026 Restauracja Gvara &mdash; Estetyka Smaku.
-        </div>
-    </footer>
-
-    <!-- Claim Website Banner -->
-    <div class="fixed bottom-0 w-full z-[100] bg-rose-600 border-t border-rose-700 shadow-[0_-10px_40px_rgba(225,29,72,0.3)]">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="text-white">
-                <span class="font-bold text-lg block sm:inline">Odbierz tę stronę dla swojej restauracji!</span>
-                <span class="text-rose-100 text-sm sm:ml-2">Gotowa do działania. Aktywacja w 24h.</span>
-            </div>
-            <a href="https://buy.stripe.com/eVqeVc6gW2F23no0Hic7u03" class="bg-white text-rose-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-0.5">
-                Kupuję stronę (250 PLN + 50 PLN/mies.)
+<body class="antialiased selection:bg-orange-600 selection:text-white relative">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 navbar-blur py-4 px-6 md:px-12 transition-all duration-300 shadow-sm">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center text-white shadow-md">
+<i class="w-6 h-6" data-lucide="utensils-crossed"></i>
+</div>
+<div class="text-xl serif font-bold tracking-tight text-slate-900 uppercase">Restauracja Gvara</div>
+</div>
+<a class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition duration-300 shadow-md" href="tel:795 889 288">
+<i class="w-4 h-4" data-lucide="phone"></i>
+                795 889 288
             </a>
-        </div>
-    </div>
-
-    <script>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="min-h-[85vh] pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center relative z-10 hero-pattern border-b border-slate-200">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 mb-6 reveal">
+<span class="w-2.5 h-2.5 rounded-full bg-orange-600 animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-widest text-orange-700">Zarezerwuj stolik</span>
+</div>
+<h1 class="serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8 text-slate-900 reveal">
+                    Sztuka <br/> <span class="text-orange-600 italic">Kulinarna.</span>
+</h1>
+<p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl reveal">
+                    Sztuka Kulinarna i Niezapomniane Smaki ({{city}}). Zapraszamy w podróż pełną wyrafinowanych smaków i aromatów. Nasza kuchnia ({{category}}) łączy tradycyjne polskie receptury z nowoczesnymi technikami kulinarnymi, tworząc dania, które zachwycają.
+                </p>
+<div class="flex flex-wrap gap-4 reveal">
+<a class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold transition duration-300 shadow-lg flex items-center gap-2" href="tel:795 889 288">
+<i class="w-5 h-5" data-lucide="phone-call"></i> Zadzwoń teraz
+                    </a>
+<a class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold transition duration-300 flex items-center gap-2" href="#menu">
+                        Zobacz menu
+                    </a>
+</div>
+</div>
+<div class="relative reveal hidden lg:block">
+<div class="aspect-square rounded-3xl overflow-hidden shadow-2xl relative">
+<img alt="Restauracja" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
+<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+<i class="text-green-600 w-6 h-6" data-lucide="check-circle-2"></i>
+</div>
+<div>
+<div class="font-bold text-slate-900">Świeże składniki</div>
+<div class="text-sm text-slate-500">Codzienne dostawy</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Section -->
+<section class="py-24 px-6 md:px-12 bg-slate-50 relative z-10" id="menu">
+<div class="max-w-4xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16 reveal">
+<div class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-3">Karta Dań</div>
+<h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-6">Nasze Menu</h2>
+<p class="text-lg text-slate-600 leading-relaxed">
+                    Każde danie przygotowujemy z pasją i dbałością o najwyższą jakość składników.
+                </p>
+</div>
+<div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-100">
+<div class="reveal">
+<h4 class="serif text-4xl mb-8 italic text-orange-600">Przystawki</h4>
+<div class="space-y-8">
+<div class="flex justify-between items-end border-b border-white/10 pb-4">
+<div>
+<span class="serif text-2xl font-bold">Tatar wołowy z leśnymi grzybami</span>
+<p class="text-xs text-stone-400 mt-2">Siekana polędwica wołowa, marynowane rydze, szalotka, żółtko przepiórcze.</p>
+</div>
+<span class="serif text-xl font-bold">49 zł</span>
+</div>
+</div>
+</div>
+<div class="reveal mt-16">
+<h4 class="serif text-4xl mb-8 italic text-orange-600">Dania Główne</h4>
+<div class="space-y-8">
+<div class="flex justify-between items-end border-b border-white/10 pb-4">
+<div>
+<span class="serif text-2xl font-bold">Pieczona kaczka w sosie śliwkowym</span>
+<p class="text-xs text-stone-400 mt-2">Chrupiące udo kaczki, kluski śląskie, karmelizowana czerwona kapusta.</p>
+</div>
+<span class="serif text-xl font-bold">78 zł</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 bg-white">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative reveal order-2 lg:order-1">
+<div class="aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-xl relative group">
+<img alt="Wnętrze" class="w-full h-full object-cover transition duration-700 scale-105 group-hover:scale-100" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+</div>
+</div>
+<div class="reveal order-1 lg:order-2">
+<div class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-3">Nasza Tożsamość</div>
+<h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-8">Prawdziwa Pasja Smaku</h2>
+<p class="text-lg text-slate-600 leading-relaxed mb-8">
+                    Wszystko zaczyna się od najlepszych, lokalnych składników dostarczanych codziennie od zaprzyjaźnionych rolników. Dbamy o każdy szczegół na talerzu oraz niepowtarzalną atmosferę, która sprawia, że nasi goście w mieście {{city}} zawsze wracają.
+                </p>
+<div class="p-8 bg-orange-50 border-l-4 border-orange-600 rounded-r-2xl serif italic text-slate-700 text-xl leading-relaxed relative">
+                    "Gotowanie to język, którym wyrażamy pasję, miłość i szacunek do natury."
+                </div>
+</div>
+</div>
+</section>
+<!-- Location & Contact -->
+<section class="py-24 px-6 md:px-12 bg-slate-900 text-white relative z-10">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="reveal">
+<h2 class="serif text-4xl md:text-5xl font-bold mb-12">Odwiedź nas</h2>
+<div class="space-y-10">
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+<i class="w-7 h-7 text-orange-400" data-lucide="map-pin"></i>
+</div>
+<div>
+<div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Nasza Lokalizacja</div>
+<div class="text-xl font-bold">Chlebnicka 48/51, 80-830 Gdańsk, Poland, Gdańsk</div>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+<i class="w-7 h-7 text-orange-400" data-lucide="clock"></i>
+</div>
+<div>
+<div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Godziny Otwarcia</div>
+<div class="text-xl font-bold">Wtorek - Niedziela: 12:00 - 22:00 | Poniedziałek: Zamknięte</div>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-orange-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-orange-600/30">
+<i class="w-7 h-7 text-white" data-lucide="phone"></i>
+</div>
+<div>
+<div class="text-sm text-orange-200 uppercase tracking-widest mb-2 font-semibold">Rezerwacje</div>
+<a class="text-4xl font-extrabold text-white hover:text-orange-400 transition" href="tel:795 889 288">795 889 288</a>
+</div>
+</div>
+</div>
+</div>
+<div class="h-[500px] rounded-3xl overflow-hidden reveal border border-white/10 shadow-2xl relative">
+<iframe allowfullscreen="" frameborder="0" height="100%" src="https://maps.google.com/maps?q=Chlebnicka 48/51, 80-830 Gdańsk, Poland,Gdańsk&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style="border:0;" width="100%">
+</iframe>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-12 px-6 md:px-12 bg-slate-950 text-slate-400 relative z-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="serif text-2xl font-bold text-white uppercase tracking-tight"><img alt="Logo" src="/images/icons/FBLogo_Blueprint.png" style="height:40px; border-radius: 50%;"/></div>
+<div class="text-sm font-medium">Serce naszej pasji na Twoim talerzu.</div>
+<div class="text-sm font-semibold tracking-wider">© 2026 Restauracja Gvara. Wszelkie prawa zastrzeżone.</div>
+</div>
+</footer>
+<!-- Claim Website Banner -->
+<div class="fixed bottom-0 w-full z-[100] bg-orange-600 border-t border-orange-700 shadow-[0_-10px_40px_rgba(234,88,12,0.2)]">
+<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+<div class="text-white">
+<span class="font-bold text-lg block sm:inline">Odbierz tę stronę dla swojej firmy!</span>
+<span class="text-orange-200 text-sm font-medium sm:ml-2">Gotowa do działania. Aktywacja w 24h.</span>
+</div>
+<a class="bg-white text-orange-700 hover:bg-slate-100 px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-0.5 text-sm uppercase tracking-wide" href="https://buy.stripe.com/28E28qdJo6VicXYgGgc7u06">
+                Kupuję stronę (500 PLN + 75 PLN/mies.)
+            </a>
+</div>
+</div>
+<script>
         lucide.createIcons();
         gsap.registerPlugin(ScrollTrigger);
 
@@ -221,11 +214,11 @@
             gsap.to(elem, {
                 scrollTrigger: {
                     trigger: elem,
-                    start: "top 95%",
+                    start: "top 90%",
                 },
                 opacity: 1,
                 y: 0,
-                duration: 1.2,
+                duration: 1,
                 ease: "power3.out"
             });
         });
