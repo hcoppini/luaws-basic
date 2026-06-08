@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-
 <html lang="pl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Restauracja Po Krakosku | Wyjątkowe Smaki</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restauracja Po Krakosku | Wyjątkowe Smaki</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
         body { 
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
@@ -33,180 +33,199 @@
     </style>
 </head>
 <body class="antialiased selection:bg-orange-600 selection:text-white relative">
-<!-- Navigation -->
-<nav class="fixed w-full z-50 navbar-blur py-4 px-6 md:px-12 transition-all duration-300 shadow-sm">
-<div class="max-w-7xl mx-auto flex justify-between items-center">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center text-white shadow-md">
-<i class="w-6 h-6" data-lucide="utensils-crossed"></i>
-</div>
-<div class="text-xl serif font-bold tracking-tight text-slate-900 uppercase">Restauracja Po Krakosku</div>
-</div>
-<a class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition duration-300 shadow-md" href="tel:518 202 805">
-<i class="w-4 h-4" data-lucide="phone"></i>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 navbar-blur py-4 px-6 md:px-12 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center text-white shadow-md">
+                    <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
+                </div>
+                <div class="text-xl serif font-bold tracking-tight text-slate-900 uppercase">Restauracja Po Krakosku</div>
+            </div>
+            <a href="tel:518 202 805" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition duration-300 shadow-md">
+                <i data-lucide="phone" class="w-4 h-4"></i>
                 518 202 805
             </a>
-</div>
-</nav>
-<!-- Hero Section -->
-<section class="min-h-[85vh] pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center relative z-10 hero-pattern border-b border-slate-200">
-<div class="grid lg:grid-cols-2 gap-12 items-center">
-<div class="max-w-3xl">
-<div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 mb-6 reveal">
-<span class="w-2.5 h-2.5 rounded-full bg-orange-600 animate-pulse"></span>
-<span class="text-xs font-bold uppercase tracking-widest text-orange-700">Zarezerwuj stolik</span>
-</div>
-<h1 class="serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8 text-slate-900 reveal">
-                    Sztuka <br/> <span class="text-orange-600 italic">Kulinarna.</span>
-</h1>
-<p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl reveal">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-[85vh] pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center relative z-10 hero-pattern border-b border-slate-200">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 mb-6 reveal">
+                    <span class="w-2.5 h-2.5 rounded-full bg-orange-600 animate-pulse"></span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-orange-700">Zarezerwuj stolik</span>
+                </div>
+                <h1 class="serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8 text-slate-900 reveal">
+                    Sztuka <br> <span class="text-orange-600 italic">Kulinarna.</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl reveal">
                     Sztuka Kulinarna i Niezapomniane Smaki ({{city}}). Zapraszamy w podróż pełną wyrafinowanych smaków i aromatów. Nasza kuchnia ({{category}}) łączy tradycyjne polskie receptury z nowoczesnymi technikami kulinarnymi, tworząc dania, które zachwycają.
                 </p>
-<div class="flex flex-wrap gap-4 reveal">
-<a class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold transition duration-300 shadow-lg flex items-center gap-2" href="tel:518 202 805">
-<i class="w-5 h-5" data-lucide="phone-call"></i> Zadzwoń teraz
+                <div class="flex flex-wrap gap-4 reveal">
+                    <a href="tel:518 202 805" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold transition duration-300 shadow-lg flex items-center gap-2">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i> Zadzwoń teraz
                     </a>
-<a class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold transition duration-300 flex items-center gap-2" href="#menu">
+                    <a href="#menu" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold transition duration-300 flex items-center gap-2">
                         Zobacz menu
                     </a>
-</div>
-</div>
-<div class="relative reveal hidden lg:block">
-<div class="aspect-square rounded-3xl overflow-hidden shadow-2xl relative">
-<img alt="Restauracja" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
-</div>
-<div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
-<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-<i class="text-green-600 w-6 h-6" data-lucide="check-circle-2"></i>
-</div>
-<div>
-<div class="font-bold text-slate-900">Świeże składniki</div>
-<div class="text-sm text-slate-500">Codzienne dostawy</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Menu Section -->
-<section class="py-24 px-6 md:px-12 bg-slate-50 relative z-10" id="menu">
-<div class="max-w-4xl mx-auto">
-<div class="text-center max-w-3xl mx-auto mb-16 reveal">
-<div class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-3">Karta Dań</div>
-<h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-6">Nasze Menu</h2>
-<p class="text-lg text-slate-600 leading-relaxed">
+                </div>
+            </div>
+            <div class="relative reveal hidden lg:block">
+                <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" 
+                         class="w-full h-full object-cover" alt="Restauracja">
+                </div>
+                <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="check-circle-2" class="text-green-600 w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-slate-900">Świeże składniki</div>
+                        <div class="text-sm text-slate-500">Codzienne dostawy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 px-6 md:px-12 bg-slate-50 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-3">Karta Dań</div>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-6">Nasze Menu</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
                     Każde danie przygotowujemy z pasją i dbałością o najwyższą jakość składników.
                 </p>
-</div>
-<div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-100">
-<div class="reveal">
-<h4 class="serif text-4xl mb-8 italic text-orange-600">Przystawki</h4>
-<div class="space-y-8">
-<div class="flex justify-between items-end border-b border-white/10 pb-4">
-<div>
-<span class="serif text-2xl font-bold">Tatar wołowy z leśnymi grzybami</span>
-<p class="text-xs text-stone-400 mt-2">Siekana polędwica wołowa, marynowane rydze, szalotka, żółtko przepiórcze.</p>
-</div>
-<span class="serif text-xl font-bold">49 zł</span>
-</div>
-</div>
-</div>
-<div class="reveal mt-16">
-<h4 class="serif text-4xl mb-8 italic text-orange-600">Dania Główne</h4>
-<div class="space-y-8">
-<div class="flex justify-between items-end border-b border-white/10 pb-4">
-<div>
-<span class="serif text-2xl font-bold">Pieczona kaczka w sosie śliwkowym</span>
-<p class="text-xs text-stone-400 mt-2">Chrupiące udo kaczki, kluski śląskie, karmelizowana czerwona kapusta.</p>
-</div>
-<span class="serif text-xl font-bold">78 zł</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- About Section -->
-<section class="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 bg-white">
-<div class="grid lg:grid-cols-2 gap-16 items-center">
-<div class="relative reveal order-2 lg:order-1">
-<div class="aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-xl relative group">
-<img alt="Wnętrze" class="w-full h-full object-cover transition duration-700 scale-105 group-hover:scale-100" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
-</div>
-</div>
-<div class="reveal order-1 lg:order-2">
-<div class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-3">Nasza Tożsamość</div>
-<h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-8">Prawdziwa Pasja Smaku</h2>
-<p class="text-lg text-slate-600 leading-relaxed mb-8">
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-100">
+                
+            <div class="reveal">
+                <h4 class="serif text-4xl mb-8 italic text-orange-600">Przystawki</h4>
+                <div class="space-y-8">
+                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
+                        <div>
+                            <span class="serif text-2xl font-bold">Tatar wołowy z leśnymi grzybami</span>
+                            <p class="text-xs text-stone-400 mt-2">Siekana polędwica wołowa, marynowane rydze, szalotka, żółtko przepiórcze.</p>
+                        </div>
+                        <span class="serif text-xl font-bold">49 zł</span>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal mt-16">
+                <h4 class="serif text-4xl mb-8 italic text-orange-600">Dania Główne</h4>
+                <div class="space-y-8">
+                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
+                        <div>
+                            <span class="serif text-2xl font-bold">Pieczona kaczka w sosie śliwkowym</span>
+                            <p class="text-xs text-stone-400 mt-2">Chrupiące udo kaczki, kluski śląskie, karmelizowana czerwona kapusta.</p>
+                        </div>
+                        <span class="serif text-xl font-bold">78 zł</span>
+                    </div>
+                </div>
+            </div>
+        
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 bg-white">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative reveal order-2 lg:order-1">
+                <div class="aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-xl relative group">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" 
+                         class="w-full h-full object-cover transition duration-700 scale-105 group-hover:scale-100" alt="Wnętrze">
+                </div>
+            </div>
+            <div class="reveal order-1 lg:order-2">
+                <div class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-3">Nasza Tożsamość</div>
+                <h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-8">Prawdziwa Pasja Smaku</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8">
                     Wszystko zaczyna się od najlepszych, lokalnych składników dostarczanych codziennie od zaprzyjaźnionych rolników. Dbamy o każdy szczegół na talerzu oraz niepowtarzalną atmosferę, która sprawia, że nasi goście w mieście {{city}} zawsze wracają.
                 </p>
-<div class="p-8 bg-orange-50 border-l-4 border-orange-600 rounded-r-2xl serif italic text-slate-700 text-xl leading-relaxed relative">
+                <div class="p-8 bg-orange-50 border-l-4 border-orange-600 rounded-r-2xl serif italic text-slate-700 text-xl leading-relaxed relative">
                     "Gotowanie to język, którym wyrażamy pasję, miłość i szacunek do natury."
                 </div>
-</div>
-</div>
-</section>
-<!-- Location & Contact -->
-<section class="py-24 px-6 md:px-12 bg-slate-900 text-white relative z-10">
-<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-<div class="reveal">
-<h2 class="serif text-4xl md:text-5xl font-bold mb-12">Odwiedź nas</h2>
-<div class="space-y-10">
-<div class="flex items-start gap-6">
-<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
-<i class="w-7 h-7 text-orange-400" data-lucide="map-pin"></i>
-</div>
-<div>
-<div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Nasza Lokalizacja</div>
-<div class="text-xl font-bold">plac Wolnica 12, 31-061 Kraków, Poland, Kraków</div>
-</div>
-</div>
-<div class="flex items-start gap-6">
-<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
-<i class="w-7 h-7 text-orange-400" data-lucide="clock"></i>
-</div>
-<div>
-<div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Godziny Otwarcia</div>
-<div class="text-xl font-bold">Wtorek - Niedziela: 12:00 - 22:00 | Poniedziałek: Zamknięte</div>
-</div>
-</div>
-<div class="flex items-start gap-6">
-<div class="w-14 h-14 bg-orange-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-orange-600/30">
-<i class="w-7 h-7 text-white" data-lucide="phone"></i>
-</div>
-<div>
-<div class="text-sm text-orange-200 uppercase tracking-widest mb-2 font-semibold">Rezerwacje</div>
-<a class="text-4xl font-extrabold text-white hover:text-orange-400 transition" href="tel:518 202 805">518 202 805</a>
-</div>
-</div>
-</div>
-</div>
-<div class="h-[500px] rounded-3xl overflow-hidden reveal border border-white/10 shadow-2xl relative">
-<iframe allowfullscreen="" frameborder="0" height="100%" src="https://maps.google.com/maps?q=plac Wolnica 12, 31-061 Kraków, Poland,Kraków&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style="border:0;" width="100%">
-</iframe>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="py-12 px-6 md:px-12 bg-slate-950 text-slate-400 relative z-10">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="serif text-2xl font-bold text-white uppercase tracking-tight"><img alt="Logo" src="https://scontent-waw2-2.cdninstagram.com/v/t51.2885-19/475845591_1345691463529650_8063500406671973137_n.jpg?stp=dst-jpg_s150x150_tt6&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby44ODcuYzIifQ&amp;_nc_ht=scontent-waw2-2.cdninstagram.com&amp;_nc_cat=106&amp;_nc_oc=Q6cZ2gHGgzCB-QfqEC4P13yfbqrRGq2Se7CpGvwYDicf1u65TxLRTpRp9u3a7cxgxyqUitaBk0N41fKn9Zs3qPe4mlrK&amp;_nc_ohc=hQNkSuZh2BUQ7kNvwGIvocP&amp;_nc_gid=MGYLekwr_B1Vs4C77SMVwg&amp;edm=AOQ1c0wBAAAA&amp;ccb=7-5&amp;oh=00_Af-m4cRHnuR9imSibrcyPJs-OAuEEK13BT7XZlalFfX_5g&amp;oe=6A2C7859&amp;_nc_sid=8b3546" style="height:40px; border-radius: 50%;"/></div>
-<div class="text-sm font-medium">Serce naszej pasji na Twoim talerzu.</div>
-<div class="text-sm font-semibold tracking-wider">© 2026 Restauracja Po Krakosku. Wszelkie prawa zastrzeżone.</div>
-</div>
-</footer>
-<!-- Claim Website Banner -->
-<div class="fixed bottom-0 w-full z-[100] bg-orange-600 border-t border-orange-700 shadow-[0_-10px_40px_rgba(234,88,12,0.2)]">
-<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-<div class="text-white">
-<span class="font-bold text-lg block sm:inline">Odbierz tę stronę dla swojej firmy!</span>
-<span class="text-orange-200 text-sm font-medium sm:ml-2">Gotowa do działania. Aktywacja w 24h.</span>
-</div>
-<a class="bg-white text-orange-700 hover:bg-slate-100 px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-0.5 text-sm uppercase tracking-wide" href="https://buy.stripe.com/6oU4gybBg2F24rs2Pqc7u05">
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section class="py-24 px-6 md:px-12 bg-slate-900 text-white relative z-10">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="serif text-4xl md:text-5xl font-bold mb-12">Odwiedź nas</h2>
+                <div class="space-y-10">
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+                            <i data-lucide="map-pin" class="w-7 h-7 text-orange-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Nasza Lokalizacja</div>
+                            <div class="text-xl font-bold">plac Wolnica 12, 31-061 Kraków, Poland, Kraków</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+                            <i data-lucide="clock" class="w-7 h-7 text-orange-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Godziny Otwarcia</div>
+                            <div class="text-xl font-bold">Wtorek - Niedziela: 12:00 - 22:00 | Poniedziałek: Zamknięte</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-6">
+                        <div class="w-14 h-14 bg-orange-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-orange-600/30">
+                            <i data-lucide="phone" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-orange-200 uppercase tracking-widest mb-2 font-semibold">Rezerwacje</div>
+                            <a href="tel:518 202 805" class="text-4xl font-extrabold text-white hover:text-orange-400 transition">518 202 805</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-[500px] rounded-3xl overflow-hidden reveal border border-white/10 shadow-2xl relative">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    style="border:0;" 
+                    src="https://maps.google.com/maps?q=plac Wolnica 12, 31-061 Kraków, Poland,Kraków&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-12 bg-slate-950 text-slate-400 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="serif text-2xl font-bold text-white uppercase tracking-tight">Restauracja Po Krakosku</div>
+            <div class="text-sm font-medium">Serce naszej pasji na Twoim talerzu.</div>
+            <div class="text-sm font-semibold tracking-wider">&copy; 2026 Restauracja Po Krakosku. Wszelkie prawa zastrzeżone.</div>
+        </div>
+    </footer>
+
+    <!-- Claim Website Banner -->
+    <div class="fixed bottom-0 w-full z-[100] bg-orange-600 border-t border-orange-700 shadow-[0_-10px_40px_rgba(234,88,12,0.2)]">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-white">
+                <span class="font-bold text-lg block sm:inline">Odbierz tę stronę dla swojej firmy!</span>
+                <span class="text-orange-200 text-sm font-medium sm:ml-2">Gotowa do działania. Aktywacja w 24h.</span>
+            </div>
+            <a href="https://buy.stripe.com/6oU4gybBg2F24rs2Pqc7u05" class="bg-white text-orange-700 hover:bg-slate-100 px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-0.5 text-sm uppercase tracking-wide">
                 Kupuję stronę (500 PLN + 100 PLN/mies.)
             </a>
-</div>
-</div>
-<script>
+        </div>
+    </div>
+
+    <script>
         lucide.createIcons();
         gsap.registerPlugin(ScrollTrigger);
 
@@ -223,5 +242,6 @@
             });
         });
     </script>
+
 </body>
 </html>
