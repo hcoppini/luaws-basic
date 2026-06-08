@@ -4,200 +4,182 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Stories Beauty | Luxury Beauty Experience</title>
+<title>Stories Beauty | Salon Urody i Relaksu</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
 <style>
-        :root {
-            --accent: #E5C158; /* Premium Champagne Gold */
-            --bg: #0A0A0A;
-            --card: #121212;
-            --border: rgba(229, 193, 88, 0.08);
-            --text-color: #F8F6F0;
-        }
         body { 
-            background-color: var(--bg); 
-            color: var(--text-color);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfafb;
+            color: #1e1b4b;
             overflow-x: hidden;
         }
-        h1, h2, h3, h4, .serif { 
-            font-family: 'Cormorant Garamond', serif; 
-            letter-spacing: -0.01em;
-        }
+        .serif { font-family: 'Playfair Display', serif; }
+        .reveal { opacity: 0; transform: translateY(30px); }
         
-        .reveal { opacity: 0; transform: translateY(40px); }
-        
-        .glass-luxury {
-            background: rgba(18, 18, 18, 0.85);
+        .navbar-blur {
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid var(--border);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-luxury:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-        }
-        
-        .hero-title {
-            font-size: clamp(3.2rem, 11vw, 9rem);
-            line-height: 0.9;
+            border-bottom: 1px solid #fce7f3;
         }
 
-        /* Champagne radial lights */
-        .ambient-gold {
-            position: absolute;
-            width: 55vw; height: 55vw;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(229, 193, 88, 0.05) 0%, transparent 80%);
-            pointer-events: none;
-            filter: blur(100px);
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e11d48' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
     </style>
 </head>
-<body class="relative">
-<!-- Ambient Gold Lights -->
-<div class="ambient-gold top-[-10%] right-[-10%]"></div>
-<div class="ambient-gold bottom-[20%] left-[-15%]"></div>
+<body class="antialiased selection:bg-rose-600 selection:text-white relative">
 <!-- Navigation -->
-<nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-16 py-8 mix-blend-difference">
-<div class="serif text-2xl md:text-3xl font-light tracking-widest text-white uppercase"><img alt="Logo" src="https://d375139ucebi94.cloudfront.net/region2/pl/152413/logo/89eb6358869a499b954bcc8797ee20-stories-beauty-logo-ad85d53c69824305b2c906bf15755f-booksy.jpeg?size=150x150" style="height:40px; border-radius: 50%;"/></div>
-<a class="inline-flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition duration-300" href="tel:537 529 121">
-<i class="w-3.5 h-3.5 text-amber-400" data-lucide="sparkles"></i>
-            537 529 121
-        </a>
+<nav class="fixed w-full z-50 navbar-blur py-4 px-6 md:px-12 transition-all duration-300 shadow-sm">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-rose-600 rounded-lg flex items-center justify-center text-white shadow-md">
+<i class="w-6 h-6" data-lucide="scissors"></i>
+</div>
+<div class="text-xl serif font-bold tracking-tight text-slate-900 uppercase">Stories Beauty</div>
+</div>
+<a class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition duration-300 shadow-md" href="tel:537 529 121">
+<i class="w-4 h-4" data-lucide="phone"></i>
+                537 529 121
+            </a>
+</div>
 </nav>
 <!-- Hero Section -->
-<section class="relative min-h-screen flex flex-col justify-center px-8 md:px-16 pt-28 pb-20 z-10">
-<div>
-<h2 class="serif italic text-2xl md:text-4xl mb-4 text-[#E5C158] reveal">Luksus i Pielęgnacja na Najwyższym Poziomie</h2>
-<h1 class="hero-title serif font-light uppercase tracking-tighter mb-8 text-white reveal leading-none">
-                Stories Beauty
-            </h1>
-<p class="max-w-md text-base leading-relaxed text-stone-300 font-light reveal">
-                Odkryj oazę piękna i relaksu. Nasz luksusowy salon oferuje spersonalizowane zabiegi fryzjerskie, kosmetyczne oraz pielęgnacyjne wykonywane przez najlepszych ekspertów w branży.
-            </p>
+<section class="min-h-[85vh] pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center relative z-10 hero-pattern border-b border-rose-100">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-rose-50 border border-rose-100 mb-6 reveal">
+<span class="w-2.5 h-2.5 rounded-full bg-rose-600 animate-pulse"></span>
+<span class="text-xs font-bold uppercase tracking-widest text-rose-700">Zarezerwuj wizytę</span>
 </div>
-<!-- Large Background Typography -->
-<div class="absolute right-0 bottom-24 serif text-[22vw] opacity-[0.01] pointer-events-none uppercase leading-none pr-8">
-            Luxury
-        </div>
-</section>
-<!-- Split Section: Image & Content -->
-<section class="py-32 px-8 md:px-16 grid md:grid-cols-2 gap-24 items-center relative z-10 border-t border-white/5" id="o-nas">
-<div class="overflow-hidden rounded-2xl aspect-[3/4] border border-white/5 shadow-2xl reveal">
-<img alt="Salon wnętrze" class="w-full h-full object-cover transition duration-1000 hover:scale-105" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
-</div>
-<div class="space-y-12">
-<div class="reveal">
-<h3 class="serif text-5xl md:text-6xl mb-8 leading-tight text-white">Sztuka Piękna <br/><span class="italic text-[#E5C158]">Zdefiniowana na Nowo.</span></h3>
-<p class="text-stone-300 font-light leading-relaxed text-lg">
-                    Wierzymy, że prawdziwe piękno tkwi w szczegółach. Od lat tworzymy wyjątkowe miejsce, gdzie profesjonalizm łączy się z luksusem, a każdy zabieg staje się niezapomnianym rytuałem dla ciała i zmysłów.
+<h1 class="serif text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8 text-slate-900 reveal">
+                    Twoje naturalne <br/> <span class="text-rose-600 italic">piękno.</span>
+</h1>
+<p class="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl reveal">
+                    Luksus i Pielęgnacja na Najwyższym Poziomie - {{city}}. Odkryj oazę piękna i relaksu. Nasz luksusowy {{category}} oferuje spersonalizowane zabiegi fryzjerskie, kosmetyczne oraz pielęgnacyjne wykonywane przez najlepszych ekspertów w branży.
                 </p>
+<div class="flex flex-wrap gap-4 reveal">
+<a class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-xl font-bold transition duration-300 shadow-lg flex items-center gap-2" href="tel:537 529 121">
+<i class="w-5 h-5" data-lucide="phone-call"></i> Umów się
+                    </a>
+<a class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold transition duration-300 flex items-center gap-2" href="#uslugi">
+                        Zobacz usługi
+                    </a>
 </div>
-<div class="grid grid-cols-2 gap-8 border-t border-white/5 pt-8 reveal">
-<div>
-<div class="serif text-4xl mb-2 text-[#E5C158] italic">100%</div>
-<div class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Rekomendacji</div>
+</div>
+<div class="relative reveal hidden lg:block">
+<div class="aspect-square rounded-3xl overflow-hidden shadow-2xl relative">
+<img alt="Salon Urody" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-rose-100 flex items-center gap-4">
+<div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center">
+<i class="text-rose-600 w-6 h-6" data-lucide="heart"></i>
 </div>
 <div>
-<div class="serif text-4xl mb-2 text-[#E5C158] italic">Premium</div>
-<div class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Standard</div>
+<div class="font-bold text-slate-900">Pełen relaks</div>
+<div class="text-sm text-slate-500">Chwila dla Ciebie</div>
+</div>
 </div>
 </div>
 </div>
 </section>
 <!-- Services Section -->
-<section class="py-32 bg-[#080808] relative z-10 border-y border-white/5" id="uslugi">
-<div class="px-8 md:px-16 mb-20 reveal">
-<span class="text-xs uppercase tracking-[0.4em] text-[#E5C158] font-bold">Nasza Oferta</span>
-<h3 class="serif text-5xl md:text-6xl mt-3 text-white italic">Rytuały Piękna</h3>
+<section class="py-24 px-6 md:px-12 bg-rose-50/50 relative z-10" id="uslugi">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16 reveal">
+<div class="text-sm font-bold text-rose-600 uppercase tracking-widest mb-3">Nasza Oferta</div>
+<h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-6">Usługi Salonu</h2>
+<p class="text-lg text-slate-600 leading-relaxed">
+                    Dbamy o każdy detal, abyś mogła poczuć się wyjątkowo i pięknie.
+                </p>
 </div>
-<div class="divide-y divide-white/[0.04] border-y border-white/[0.04]">
-<div class="py-12 flex justify-between items-center px-8 md:px-16 hover:bg-white/5 transition reveal">
-<div>
-<h4 class="serif text-3xl font-light">Strzyżenie &amp; Stylizacja Premium</h4>
-<p class="text-xs text-stone-500 mt-2 font-light">Ekskluzywne cięcie dopasowane do kształtu twarzy i struktury włosa.</p>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ai_menu_sections}}
+            </div>
 </div>
-<div class="serif text-2xl accent-text italic">od 150 zł</div>
+</section>
+<!-- About Section -->
+<section class="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 bg-white">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative reveal order-2 lg:order-1">
+<div class="aspect-[4/3] rounded-3xl overflow-hidden border border-rose-200 shadow-xl relative group">
+<img alt="Zabiegi" class="w-full h-full object-cover transition duration-700 scale-105 group-hover:scale-100" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
 </div>
-<div class="py-12 flex justify-between items-center px-8 md:px-16 hover:bg-white/5 transition reveal">
-<div>
-<h4 class="serif text-3xl font-light">Koloryzacja Balayage &amp; Gloss</h4>
-<p class="text-xs text-stone-500 mt-2 font-light">Zaawansowane techniki rozjaśniania z organiczną ochroną włosa.</p>
 </div>
-<div class="serif text-2xl accent-text italic">od 350 zł</div>
-</div>
-<div class="py-12 flex justify-between items-center px-8 md:px-16 hover:bg-white/5 transition reveal">
-<div>
-<h4 class="serif text-3xl font-light">Rytuał Pielęgnacyjny Kérastase</h4>
-<p class="text-xs text-stone-500 mt-2 font-light">Głęboka rekonstrukcja i nawilżenie z masażem skóry głowy.</p>
-</div>
-<div class="serif text-2xl accent-text italic">od 200 zł</div>
+<div class="reveal order-1 lg:order-2">
+<div class="text-sm font-bold text-rose-600 uppercase tracking-widest mb-3">Nasza Filozofia</div>
+<h2 class="serif text-4xl md:text-5xl font-bold text-slate-900 mb-8">Elegancja i Precyzja</h2>
+<p class="text-lg text-slate-600 leading-relaxed mb-8">
+                    Wierzymy, że prawdziwe piękno tkwi w szczegółach. Od lat tworzymy wyjątkowe miejsce w mieście {{city}}, gdzie profesjonalizm łączy się z luksusem, a każdy zabieg staje się niezapomnianym rytuałem dla ciała i zmysłów.
+                </p>
+<div class="p-8 bg-rose-50 border-l-4 border-rose-600 rounded-r-2xl serif italic text-slate-700 text-xl leading-relaxed relative">
+                    "Prawdziwe piękno rodzi się w momencie, gdy decydujesz się być sobą."
+                </div>
 </div>
 </div>
 </section>
-<!-- Contact & Map -->
-<section class="py-32 px-8 md:px-16 relative z-10" id="kontakt">
-<div class="grid md:grid-cols-12 gap-16 items-center">
-<div class="md:col-span-5 reveal">
-<div class="text-xs uppercase tracking-widest text-[#E5C158] font-bold mb-3">Rezerwacja Miejsc</div>
-<h3 class="serif text-5xl mb-12 text-white">Odwiedź nas</h3>
-<div class="space-y-8">
-<div class="flex gap-6 items-start">
-<div class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center shrink-0">
-<i class="text-[#E5C158] w-5 h-5" data-lucide="map-pin"></i>
+<!-- Location & Contact -->
+<section class="py-24 px-6 md:px-12 bg-slate-900 text-white relative z-10">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="reveal">
+<h2 class="serif text-4xl md:text-5xl font-bold mb-12">Umów wizytę</h2>
+<div class="space-y-10">
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+<i class="w-7 h-7 text-rose-400" data-lucide="map-pin"></i>
 </div>
 <div>
-<div class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Adres Salonu</div>
-<div class="font-light text-stone-200">Gwiaździsta 18, 53-413 Wrocław, Poland, Wrocław</div>
+<div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Nasz Salon</div>
+<div class="text-xl font-bold">Gwiaździsta 18, 53-413 Wrocław, Poland, Wrocław</div>
 </div>
 </div>
-<div class="flex gap-6 items-start">
-<div class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center shrink-0">
-<i class="text-[#E5C158] w-5 h-5" data-lucide="clock"></i>
-</div>
-<div>
-<div class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Godziny Otwarcia</div>
-<div class="font-light text-stone-200">Poniedziałek - Piątek: 09:00 - 20:00 | Sobota: 09:00 - 15:00</div>
-</div>
-</div>
-<div class="flex gap-6 items-start">
-<div class="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center shrink-0">
-<i class="text-[#E5C158] w-5 h-5" data-lucide="phone"></i>
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+<i class="w-7 h-7 text-rose-400" data-lucide="clock"></i>
 </div>
 <div>
-<div class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Zadzwoń do nas</div>
-<a class="serif text-3xl italic text-white hover:text-[#E5C158] transition" href="tel:537 529 121">537 529 121</a>
+<div class="text-sm text-slate-400 uppercase tracking-widest mb-2 font-semibold">Godziny Otwarcia</div>
+<div class="text-xl font-bold">Poniedziałek - Piątek: 09:00 - 20:00 | Sobota: 09:00 - 15:00</div>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 bg-rose-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-rose-600/30">
+<i class="w-7 h-7 text-white" data-lucide="phone"></i>
+</div>
+<div>
+<div class="text-sm text-rose-200 uppercase tracking-widest mb-2 font-semibold">Zadzwoń do nas</div>
+<a class="text-4xl font-extrabold text-white hover:text-rose-400 transition" href="tel:537 529 121">537 529 121</a>
 </div>
 </div>
 </div>
 </div>
-<div class="md:col-span-7 h-[500px] rounded-3xl overflow-hidden border border-white/5 shadow-2xl relative">
-<iframe allowfullscreen="" frameborder="0" height="100%" src="https://maps.google.com/maps?q=Gwiaździsta 18, 53-413 Wrocław, Poland,Wrocław&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style="border:0; filter: invert(90%) hue-rotate(180deg);" width="100%">
+<div class="h-[500px] rounded-3xl overflow-hidden reveal border border-white/10 shadow-2xl relative">
+<iframe allowfullscreen="" frameborder="0" height="100%" src="https://maps.google.com/maps?q=Gwiaździsta 18, 53-413 Wrocław, Poland,Wrocław&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style="border:0;" width="100%">
 </iframe>
 </div>
 </div>
 </section>
 <!-- Footer -->
-<footer class="py-16 px-8 md:px-16 bg-black/40 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 relative z-10">
-<div class="serif text-2xl font-light uppercase tracking-widest text-white/40">Stories Beauty</div>
-<div class="text-[10px] tracking-[0.4em] uppercase text-stone-600">
-            © 2026 Stories Beauty — Luxury Concept.
-        </div>
+<footer class="py-12 px-6 md:px-12 bg-slate-950 text-slate-400 relative z-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="serif text-2xl font-bold text-white uppercase tracking-tight"><img alt="Logo" src="https://d375139ucebi94.cloudfront.net/region2/pl/152413/logo/89eb6358869a499b954bcc8797ee20-stories-beauty-logo-ad85d53c69824305b2c906bf15755f-booksy.jpeg?size=150x150" style="height:40px; border-radius: 50%;"/></div>
+<div class="text-sm font-medium">Kreujemy Twój niepowtarzalny styl każdego dnia.</div>
+<div class="text-sm font-semibold tracking-wider">© 2026 Stories Beauty. Wszelkie prawa zastrzeżone.</div>
+</div>
 </footer>
 <!-- Claim Website Banner -->
-<div class="fixed bottom-0 w-full z-[100] bg-rose-500 border-t border-rose-600 shadow-[0_-10px_40px_rgba(244,63,94,0.3)]">
+<div class="fixed bottom-0 w-full z-[100] bg-rose-600 border-t border-rose-700 shadow-[0_-10px_40px_rgba(225,29,72,0.2)]">
 <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
 <div class="text-white">
-<span class="font-bold text-lg block sm:inline">Odbierz tę stronę dla swojego salonu!</span>
-<span class="text-rose-100 text-sm sm:ml-2">Gotowa do działania. Aktywacja w 24h.</span>
+<span class="font-bold text-lg block sm:inline">Odbierz tę stronę dla swojej firmy!</span>
+<span class="text-rose-200 text-sm font-medium sm:ml-2">Gotowa do działania. Aktywacja w 24h.</span>
 </div>
-<a class="bg-white text-rose-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-0.5" href="https://buy.stripe.com/eVqeVc6gW2F23no0Hic7u03">
-                Kupuję stronę (250 PLN + 50 PLN/mies.)
+<a class="bg-white text-rose-700 hover:bg-slate-100 px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-0.5 text-sm uppercase tracking-wide" href="https://buy.stripe.com/6oU4gybBg2F24rs2Pqc7u05">
+                Kupuję stronę (500 PLN + 100 PLN/mies.)
             </a>
 </div>
 </div>
@@ -209,11 +191,11 @@
             gsap.to(elem, {
                 scrollTrigger: {
                     trigger: elem,
-                    start: "top 95%",
+                    start: "top 90%",
                 },
                 opacity: 1,
                 y: 0,
-                duration: 1.2,
+                duration: 1,
                 ease: "power3.out"
             });
         });
