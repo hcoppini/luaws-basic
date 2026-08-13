@@ -1,5 +1,15 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
+    {
+      "source": "/:slug",
+      "destination": "/:slug/index.html"
+    },
+    {
+      "source": "/:slug/",
+      "destination": "/:slug/index.html"
+    },
     {
       "source": "/:match*",
       "has": [
