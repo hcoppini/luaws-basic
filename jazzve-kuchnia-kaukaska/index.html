@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ business_name }} | Fine Dining Warszawa</title>
-    <meta name="description" content="{{ tagline }}">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>{{ business_name }} | Fine Dining Warszawa</title>
+<meta content="{{ tagline }}" name="description"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Montserrat:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
         :root {
             --color-bg: #121619; /* Deep charcoal/almost black */
             --color-text: #F5F5F5; /* Off-white */
@@ -189,124 +188,115 @@
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="container nav-inner">
-            <a href="#" class="logo">{{ business_name }}</a>
-            <nav class="nav-links" id="navLinks">
-                <a href="#story">Historia</a>
-                <a href="#menu">Menu</a>
-                <a href="#tasting">Degustacja</a>
-                <a href="#contact">Kontakt</a>
-                <a href="#reservation" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Rezerwacja</a>
-            </nav>
-            <button class="mobile-menu-btn" id="menuBtn">☰</button>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-bg">
-            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2670&auto=format&fit=crop" alt="Fine Dining">
-        </div>
-        <div class="hero-content">
-            <h1>{{ business_name }}</h1>
-            <p>{{ tagline }}</p>
-            <a href="#reservation" class="btn">Zarezerwuj Stolik</a>
-        </div>
-    </section>
-
-    <section id="story" class="story section-padding">
-        <div class="container story-grid">
-            <div class="story-img reveal">
-                <img src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9ce?q=80&w=2670&auto=format&fit=crop" alt="Chef">
-            </div>
-            <div class="story-text reveal">
-                <h2>Sztuka Kulinarna</h2>
-                <p>Nasza kuchnia to hołd dla polskiej tradycji, zinterpretowanej na nowo przez pryzmat nowoczesnych technik kulinarnych i najwyższej jakości produktów od lokalnych dostawców.</p>
-                <p>Każde danie to starannie skomponowane dzieło, które ma pobudzać wszystkie zmysły. Zapraszamy w niezwykłą podróż pełną smaków, tekstur i aromatów.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="menu" class="menu-section section-padding">
-        <div class="container">
-            <div class="text-center reveal" style="margin-bottom: 4rem;">
-                <h2>Menu A La Carte</h2>
-                <p style="color: #888; margin-top: 1rem;">Selekcja naszych flagowych dań</p>
-            </div>
-            
-            <div class="menu-grid reveal">
-                <div class="menu-category">
-                    <h3>Przystawki</h3>
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <span class="menu-item-title">Tatar z Jelenia</span>
-                            <span class="menu-item-price">65 PLN</span>
-                        </div>
-                        <span class="menu-item-desc">Piklowana gorczyca, żółtko przepiórcze, lubczyk, chrust z pora</span>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <span class="menu-item-title">Przegrzebki</span>
-                            <span class="menu-item-price">75 PLN</span>
-                        </div>
-                        <span class="menu-item-desc">Mus z kalafiora, trufla, emulsja maślana z ikrą</span>
-                    </div>
-                </div>
-
-                <div class="menu-category">
-                    <h3>Dania Główne</h3>
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <span class="menu-item-title">Polędwica Wołowa</span>
-                            <span class="menu-item-price">145 PLN</span>
-                        </div>
-                        <span class="menu-item-desc">Puree selerowe, szpik kostny, demi-glace z czarnym bzem</span>
-                    </div>
-                    <div class="menu-item">
-                        <div class="menu-item-header">
-                            <span class="menu-item-title">Jesiotr</span>
-                            <span class="menu-item-price">120 PLN</span>
-                        </div>
-                        <span class="menu-item-desc">Kremowy pęczak, szyjki rakowe, sos koperkowy, palone masło</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tasting" class="tasting-banner reveal">
-        <h2>Menu Degustacyjne</h2>
-        <p>7 MOMENTÓW | 420 PLN</p>
-        <p style="font-size: 0.9rem; color: #888; font-family: var(--font-body); margin-bottom: 2rem;">Wine Pairing + 250 PLN</p>
-        <a href="#reservation" class="btn">Odkryj Doświadczenie</a>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Rezerwacje</h4>
-                    <a href="tel:{{ phone }}">{{ phone }}</a>
-                    <a href="mailto:rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl">rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Lokalizacja</h4>
-                    <p>{{ address }}</p>
-                    <p>{{ city }}</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Godziny Otwarcia</h4>
-                    <p>{{ opening_hours }}</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 {{ business_name }}. Wszelkie prawa zastrzeżone.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+<header>
+<div class="container nav-inner">
+<a class="logo" href="#">{{ business_name }}</a>
+<nav class="nav-links" id="navLinks">
+<a href="#story">Historia</a>
+<a href="#menu">Menu</a>
+<a href="#tasting">Degustacja</a>
+<a href="#contact">Kontakt</a>
+<a class="btn" href="#reservation" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Rezerwacja</a>
+</nav>
+<button class="mobile-menu-btn" id="menuBtn">☰</button>
+</div>
+</header>
+<section class="hero">
+<div class="hero-bg">
+<img alt="Fine Dining" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="hero-content">
+<h1>{{ business_name }}</h1>
+<p>{{ tagline }}</p>
+<a class="btn" href="#reservation">Zarezerwuj Stolik</a>
+</div>
+</section>
+<section class="story section-padding" id="story">
+<div class="container story-grid">
+<div class="story-img reveal">
+<img alt="Chef" src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9ce?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="story-text reveal">
+<h2>Sztuka Kulinarna</h2>
+<p>Nasza kuchnia to hołd dla polskiej tradycji, zinterpretowanej na nowo przez pryzmat nowoczesnych technik kulinarnych i najwyższej jakości produktów od lokalnych dostawców.</p>
+<p>Każde danie to starannie skomponowane dzieło, które ma pobudzać wszystkie zmysły. Zapraszamy w niezwykłą podróż pełną smaków, tekstur i aromatów.</p>
+</div>
+</div>
+</section>
+<section class="menu-section section-padding" id="menu">
+<div class="container">
+<div class="text-center reveal" style="margin-bottom: 4rem;">
+<h2>Menu A La Carte</h2>
+<p style="color: #888; margin-top: 1rem;">Selekcja naszych flagowych dań</p>
+</div>
+<div class="menu-grid reveal">
+<div class="menu-category">
+<h3>Przystawki</h3>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Tatar z Jelenia</span>
+<span class="menu-item-price">65 PLN</span>
+</div>
+<span class="menu-item-desc">Piklowana gorczyca, żółtko przepiórcze, lubczyk, chrust z pora</span>
+</div>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Przegrzebki</span>
+<span class="menu-item-price">75 PLN</span>
+</div>
+<span class="menu-item-desc">Mus z kalafiora, trufla, emulsja maślana z ikrą</span>
+</div>
+</div>
+<div class="menu-category">
+<h3>Dania Główne</h3>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Polędwica Wołowa</span>
+<span class="menu-item-price">145 PLN</span>
+</div>
+<span class="menu-item-desc">Puree selerowe, szpik kostny, demi-glace z czarnym bzem</span>
+</div>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Jesiotr</span>
+<span class="menu-item-price">120 PLN</span>
+</div>
+<span class="menu-item-desc">Kremowy pęczak, szyjki rakowe, sos koperkowy, palone masło</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="tasting-banner reveal" id="tasting">
+<h2>Menu Degustacyjne</h2>
+<p>7 MOMENTÓW | 420 PLN</p>
+<p style="font-size: 0.9rem; color: #888; font-family: var(--font-body); margin-bottom: 2rem;">Wine Pairing + 250 PLN</p>
+<a class="btn" href="#reservation">Odkryj Doświadczenie</a>
+</section>
+<footer id="contact">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>Rezerwacje</h4>
+<a href="tel:{{ phone }}">{{ phone }}</a>
+<a href="mailto:rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl">rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl</a>
+</div>
+<div class="footer-col">
+<h4>Lokalizacja</h4>
+<p>{{ address }}</p>
+<p>{{ city }}</p>
+</div>
+<div class="footer-col">
+<h4>Godziny Otwarcia</h4>
+<p>{{ opening_hours }}</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 {{ business_name }}. Wszelkie prawa zastrzeżone.</p>
+</div>
+</div>
+</footer>
+<script>
         // Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
