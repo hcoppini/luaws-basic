@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ business_name }} | Specialty Coffee</title>
-    <meta name="description" content="{{ tagline }}">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>{{ business_name }} | Specialty Coffee</title>
+<meta content="{{ tagline }}" name="description"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
         :root {
             --color-bg: #FDFBF7; /* Warm light beige */
             --color-text: #2B2118; /* Dark brown/black */
@@ -155,136 +154,127 @@
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="container nav-inner">
-            <a href="#" class="logo">{{ business_name }}</a>
-            <nav class="nav-links" id="navLinks">
-                <a href="#about">Nasza Kawa</a>
-                <a href="#menu">Menu</a>
-                <a href="#beans">Ziarna</a>
-                <a href="#contact">Kontakt</a>
-            </nav>
-            <button class="mobile-menu-btn" id="menuBtn">☰</button>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>Kawa to nasza rzemieślnicza pasja.</h1>
-                <p>{{ tagline }}</p>
-                <a href="#menu" class="btn">Zobacz Menu</a>
-            </div>
-            <div class="hero-img">
-                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2671&auto=format&fit=crop" alt="Barista przygotowujący kawę">
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="brew-section section-padding">
-        <div class="container brew-grid">
-            <div class="brew-img reveal">
-                <img src="https://images.unsplash.com/photo-1495474472207-464a8d4ce69d?q=80&w=2574&auto=format&fit=crop" alt="Drip coffee">
-            </div>
-            <div class="brew-text reveal">
-                <h2>Specialty. Bez kompromisów.</h2>
-                <p>Wybieramy ziarna z najlepszych palarni w Europie. Zwracamy uwagę na pochodzenie, obróbkę i profil sensoryczny. Każda filiżanka to efekt precyzji i szacunku do produktu.</p>
-                <p>Od idealnie zbalansowanego espresso po owocowe i herbaciane napary z dripa i aeropressu. Przyjdź i porozmawiaj z naszymi baristami o kawie.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="menu" class="menu-section section-padding">
-        <div class="container">
-            <div class="text-center reveal" style="margin-bottom: 4rem;">
-                <h2>Klasyki & Alternatywy</h2>
-            </div>
-            
-            <div class="menu-grid reveal">
-                <div class="menu-col">
-                    <h3>Espresso Bar</h3>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Espresso / Doppio</span>
-                        <span class="menu-item-price">10 / 13 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Flat White</span>
-                        <span class="menu-item-price">16 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Cappuccino</span>
-                        <span class="menu-item-price">15 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Latte</span>
-                        <span class="menu-item-price">17 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Tonic Espresso</span>
-                        <span class="menu-item-price">19 zł</span>
-                    </div>
-                </div>
-
-                <div class="menu-col">
-                    <h3>Przelew / Brew Bar</h3>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Drip V60</span>
-                        <span class="menu-item-price">18 - 22 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Aeropress</span>
-                        <span class="menu-item-price">17 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Chemex (dla dwojga)</span>
-                        <span class="menu-item-price">28 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Batch Brew</span>
-                        <span class="menu-item-price">14 zł</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="menu-item-name">Cold Brew</span>
-                        <span class="menu-item-price">16 zł</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="beans" class="section-padding">
-        <div class="beans-section reveal">
-            <h2>Pij dobrą kawę w domu</h2>
-            <p>Na naszych półkach znajdziesz świeżo palone ziarna pod espresso i pod filtry od zaprzyjaźnionych palarni, a także akcesoria do parzenia.</p>
-            <a href="#contact" class="btn btn-outline">Odwiedź Nas</a>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-logo">{{ business_name }}</div>
-            <div class="footer-info">
-                <div>
-                    <strong>Adres</strong>
-                    <span>{{ address }}</span>
-                    <span>{{ city }}</span>
-                </div>
-                <div>
-                    <strong>Godziny</strong>
-                    <span>{{ opening_hours }}</span>
-                </div>
-                <div>
-                    <strong>Kontakt</strong>
-                    <span>{{ phone }}</span>
-                    <span>hello@{{ business_name | lower | replace(' ', '') }}.pl</span>
-                </div>
-            </div>
-            <div style="font-size: 0.8rem; color: #999;">&copy; 2026 {{ business_name }}. Created by Agency.</div>
-        </div>
-    </footer>
-
-    <script>
+<header>
+<div class="container nav-inner">
+<a class="logo" href="#">{{ business_name }}</a>
+<nav class="nav-links" id="navLinks">
+<a href="#about">Nasza Kawa</a>
+<a href="#menu">Menu</a>
+<a href="#beans">Ziarna</a>
+<a href="#contact">Kontakt</a>
+</nav>
+<button class="mobile-menu-btn" id="menuBtn">☰</button>
+</div>
+</header>
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-content">
+<h1>Kawa to nasza rzemieślnicza pasja.</h1>
+<p>{{ tagline }}</p>
+<a class="btn" href="#menu">Zobacz Menu</a>
+</div>
+<div class="hero-img">
+<img alt="Barista przygotowujący kawę" src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&amp;w=2671&amp;auto=format&amp;fit=crop"/>
+</div>
+</div>
+</section>
+<section class="brew-section section-padding" id="about">
+<div class="container brew-grid">
+<div class="brew-img reveal">
+<img alt="Drip coffee" src="https://images.unsplash.com/photo-1495474472207-464a8d4ce69d?q=80&amp;w=2574&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="brew-text reveal">
+<h2>Specialty. Bez kompromisów.</h2>
+<p>Wybieramy ziarna z najlepszych palarni w Europie. Zwracamy uwagę na pochodzenie, obróbkę i profil sensoryczny. Każda filiżanka to efekt precyzji i szacunku do produktu.</p>
+<p>Od idealnie zbalansowanego espresso po owocowe i herbaciane napary z dripa i aeropressu. Przyjdź i porozmawiaj z naszymi baristami o kawie.</p>
+</div>
+</div>
+</section>
+<section class="menu-section section-padding" id="menu">
+<div class="container">
+<div class="text-center reveal" style="margin-bottom: 4rem;">
+<h2>Klasyki &amp; Alternatywy</h2>
+</div>
+<div class="menu-grid reveal">
+<div class="menu-col">
+<h3>Espresso Bar</h3>
+<div class="menu-item">
+<span class="menu-item-name">Espresso / Doppio</span>
+<span class="menu-item-price">10 / 13 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Flat White</span>
+<span class="menu-item-price">16 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Cappuccino</span>
+<span class="menu-item-price">15 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Latte</span>
+<span class="menu-item-price">17 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Tonic Espresso</span>
+<span class="menu-item-price">19 zł</span>
+</div>
+</div>
+<div class="menu-col">
+<h3>Przelew / Brew Bar</h3>
+<div class="menu-item">
+<span class="menu-item-name">Drip V60</span>
+<span class="menu-item-price">18 - 22 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Aeropress</span>
+<span class="menu-item-price">17 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Chemex (dla dwojga)</span>
+<span class="menu-item-price">28 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Batch Brew</span>
+<span class="menu-item-price">14 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Cold Brew</span>
+<span class="menu-item-price">16 zł</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-padding" id="beans">
+<div class="beans-section reveal">
+<h2>Pij dobrą kawę w domu</h2>
+<p>Na naszych półkach znajdziesz świeżo palone ziarna pod espresso i pod filtry od zaprzyjaźnionych palarni, a także akcesoria do parzenia.</p>
+<a class="btn btn-outline" href="#contact">Odwiedź Nas</a>
+</div>
+</section>
+<footer id="contact">
+<div class="container">
+<div class="footer-logo"><img alt="Logo" src="https://scontent-waw2-1.cdninstagram.com/v/t51.82787-19/623424545_17842882161686004_1343517508726230425_n.jpg?stp=dst-jpg_s150x150_tt6&amp;_nc_cat=111&amp;ccb=7-5&amp;_nc_sid=f7ccc5&amp;efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&amp;_nc_ohc=BvVqHyxkAQAQ7kNvwEbIKl8&amp;_nc_oc=AdoHVptAjzLyVEqCyFLD2J2umoBAipNOlqS2St2s3aczfa3aZWWKJioN-P4OPZbEQhx1gI_yyhUpUrJ57b1MC8xM&amp;_nc_zt=24&amp;_nc_ht=scontent-waw2-1.cdninstagram.com&amp;_nc_gid=v4AQE2mAaXrDpx8-XlsbCg&amp;_nc_ss=7f60f&amp;oh=00_AQFuUgNf1mfGctGeu-LI0DavOsGqQHz4yZc6gWVZg7-N4g&amp;oe=6A84DA93" style="height:40px; border-radius: 50%;"/></div>
+<div class="footer-info">
+<div>
+<strong>Adres</strong>
+<span>{{ address }}</span>
+<span>{{ city }}</span>
+</div>
+<div>
+<strong>Godziny</strong>
+<span>{{ opening_hours }}</span>
+</div>
+<div>
+<strong>Kontakt</strong>
+<span>{{ phone }}</span>
+<span>hello@{{ business_name | lower | replace(' ', '') }}.pl</span>
+</div>
+</div>
+<div style="font-size: 0.8rem; color: #999;">© 2026 {{ business_name }}. Created by Agency.</div>
+</div>
+</footer>
+<script>
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
         menuBtn.addEventListener('click', () => {
