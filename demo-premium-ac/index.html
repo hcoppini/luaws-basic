@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KlimaTech Wentylacja & HVAC | Nowoczesna Klimatyzacja</title>
+    <meta name="description" content="Klimatyzacja, Wentylacja i Pompy Ciepła - Warszawa i okolice">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-bg: #FFFFFF; /* Pure White */
+            --color-text: #1C2431; /* Deep slate blue/gray */
+            --color-accent: #0077FF; /* Tech blue */
+            --color-accent-light: #E5F1FF; /* Light tech blue */
+            --color-secondary: #F4F7F9; /* Very light cool gray */
+            
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Manrope', sans-serif;
+            
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 500; line-height: 1.2; letter-spacing: -0.5px; }
+        a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: var(--spacing-xl) 0; }
+        .text-center { text-align: center; }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--color-accent);
+            color: #FFF;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 8px;
+            border: 2px solid var(--color-accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 119, 255, 0.2);
+        }
+
+        .btn:hover { background-color: transparent; color: var(--color-accent); box-shadow: none; }
+
+        /* Navigation */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0;
+            z-index: 100; transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(28, 36, 49, 0.05);
+        }
+
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 600; color: var(--color-text); }
+        .logo span { color: var(--color-accent); }
+        
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--color-accent); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; cursor: pointer;
+            font-size: 1.5rem; color: var(--color-text);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh; display: flex; align-items: center;
+            background-color: var(--color-secondary);
+            position: relative; overflow: hidden;
+        }
+        .hero::after {
+            content: ''; position: absolute; right: -10%; top: -10%;
+            width: 600px; height: 600px; background: var(--color-accent-light);
+            border-radius: 50%; filter: blur(100px); z-index: 0;
+        }
+        
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+        
+        .hero-content { opacity: 0; transform: translateY(30px); animation: fadeUp 1s forwards 0.2s; }
+        .hero h1 { font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+        .hero h1 span { color: var(--color-accent); }
+        .hero p { font-size: 1.2rem; color: #555; margin-bottom: 2.5rem; }
+        
+        .hero-img { position: relative; opacity: 0; transform: translateY(30px); animation: fadeUp 1s forwards 0.4s; }
+        .hero-img img { border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        /* Trust & Brands */
+        .brands { background-color: var(--color-bg); padding: 4rem 0; border-bottom: 1px solid var(--color-secondary); }
+        .brands p { text-align: center; color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; font-weight: 700; }
+        .brands-grid { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; opacity: 0.6; font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600;}
+
+        /* Value Props */
+        .values { background-color: var(--color-bg); }
+        .section-header { text-align: center; margin-bottom: 4rem; max-width: 600px; margin-inline: auto; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+        .value-card { background-color: var(--color-secondary); padding: 3rem 2rem; border-radius: 16px; text-align: center; transition: transform 0.3s ease; }
+        .value-card:hover { transform: translateY(-10px); }
+        .value-icon { width: 60px; height: 60px; background-color: var(--color-accent-light); color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.5rem; font-weight: bold; }
+        .value-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .value-card p { color: #666; font-size: 0.95rem; }
+
+        /* Process */
+        .process { background-color: var(--color-secondary); }
+        .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .process-img img { border-radius: 16px; }
+        .step { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+        .step-number { font-family: var(--font-heading); font-size: 2rem; font-weight: 600; color: var(--color-accent); line-height: 1; }
+        .step-text h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .step-text p { color: #666; font-size: 0.95rem; }
+
+        /* Footer */
+        footer { background-color: var(--color-text); color: var(--color-bg); padding: 5rem 0 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 4rem; }
+        .footer-col h4 { font-size: 1.5rem; margin-bottom: 1.5rem; color: #FFF; }
+        .footer-col p, .footer-col a { color: #A0AABF; margin-bottom: 0.8rem; display: block; font-size: 0.95rem; }
+        .footer-col a:hover { color: var(--color-accent); }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.85rem; color: #888; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Mobile */
+        @media (max-width: 992px) {
+            .hero-grid, .process-grid { grid-template-columns: 1fr; }
+            .hero-content { padding-top: 80px; text-align: center; }
+            .hero h1 { font-size: 3rem; }
+            .values-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background-color: var(--color-bg); flex-direction: column; justify-content: center;
+                transition: right 0.4s ease; box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            }
+            .nav-links.active { right: 0; }
+            .mobile-menu-btn { display: block; z-index: 101; }
+            .brands-grid { gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">KlimaTech Wentylacja & HVAC<span>.</span></a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">O nas</a>
+                <a href="#process">Montaż</a>
+                <a href="#contact">Kontakt</a>
+                <a href="#contact" class="btn" style="padding: 0.6rem 1.5rem;">Darmowa Wycena</a>
+            </nav>
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Inteligentny klimat w Twoim <span>wnętrzu.</span></h1>
+                <p>Klimatyzacja, Wentylacja i Pompy Ciepła - Warszawa i okolice</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#contact" class="btn">Umów Audyt</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1581092921461-7031e4bf0e5f?q=80&w=2670&auto=format&fit=crop" alt="Smart home AC">
+            </div>
+        </div>
+    </section>
+
+    <section class="brands">
+        <div class="container">
+            <p>Autoryzowany Instalator Marek Premium</p>
+            <div class="brands-grid">
+                <div>DAIKIN</div>
+                <div>MITSUBISHI</div>
+                <div>PANASONIC</div>
+                <div>FUJITSU</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="values section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Standard Premium</h2>
+                <p style="color: #666;">Montujemy urządzenia na lata. Dbamy o estetykę i najwyższe parametry.</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card reveal">
+                    <div class="value-icon">✓</div>
+                    <h3>Czysty Montaż</h3>
+                    <p>Używamy przemysłowych odciągów pyłu. Twoje wykończone wnętrze pozostanie nieskazitelnie czyste po naszej pracy.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.1s;">
+                    <div class="value-icon">W</div>
+                    <h3>5 Lat Gwarancji</h3>
+                    <p>Dzięki autoryzacji producentów zyskujesz wydłużoną, 5-letnią gwarancję na sprzęt i montaż przy regularnym serwisie.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.2s;">
+                    <div class="value-icon">S</div>
+                    <h3>Smart Home</h3>
+                    <p>Systemy zintegrowane z Wi-Fi. Steruj temperaturą ze smartfona z dowolnego miejsca na świecie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process section-padding">
+        <div class="container process-grid">
+            <div class="process-img reveal">
+                <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=2669&auto=format&fit=crop" alt="Praca Instalatora">
+            </div>
+            <div class="process-text reveal">
+                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Jak działamy?</h2>
+                
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-text">
+                        <h4>Bezpłatny Audyt</h4>
+                        <p>Przyjeżdżamy na miejsce, oceniamy możliwości techniczne i doradzamy najlepszą moc i model urządzenia do Twojego wnętrza.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-text">
+                        <h4>Wycena i Projekt</h4>
+                        <p>Otrzymujesz przejrzystą wycenę bez ukrytych kosztów. Planujemy estetyczne ukrycie instalacji i maskownic.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-text">
+                        <h4>Profesjonalny Montaż</h4>
+                        <p>Instalację przeprowadzają certyfikowani technicy F-Gaz. Szybko, estetycznie i w pełni bezpiecznie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>KlimaTech Wentylacja & HVAC</h4>
+                    <p>Nowoczesna Klimatyzacja i Rekuperacja.</p>
+                    <p style="color: var(--color-accent); font-weight: 500; margin-top: 1rem;">Certyfikat F-GAZ.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <a href="tel:+48 575 553 516">+48 575 553 516</a>
+                    <a href="mailto:biuro@klimatechwentylacja&hvac.pl">biuro@klimatechwentylacja&hvac.pl</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Adres Biura</h4>
+                    <p>ul. Przemysłowa 10</p>
+                    <p>Warszawa</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Godziny Pracy</h4>
+                    <p>Poniedziałek - Piątek: 08:00 - 18:00 | Sobota: 09:00 - 14:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KlimaTech Wentylacja & HVAC. Created by Agency.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.innerHTML = '☰';
+            });
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach((reveal) => {
+                if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
