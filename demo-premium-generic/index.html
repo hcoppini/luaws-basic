@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usługi Biznesowe Ekspert | Profesjonalne Usługi</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3 { text-wrap: balance; }
+        p { text-wrap: pretty; }
+        
+        #uslugi h3, #uslugi h4 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: #0f172a; }
+        #uslugi p { font-size: 1rem; color: #475569; }
+        #uslugi ul { padding-left: 1rem; margin-top: 1rem; color: #475569;}
+    </style>
+</head>
+<body class="selection:bg-violet-600 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-200 py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-slate-900">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-violet-600 rounded flex items-center justify-center text-white">
+                    <i data-lucide="layers" class="w-4 h-4"></i>
+                </div>
+                <div class="text-lg font-bold tracking-tight">Usługi Biznesowe Ekspert</div>
+            </div>
+            <a href="tel:+48 575 553 516" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                +48 575 553 516
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-8 text-slate-900">
+                    Rozwiązania dla Twojego biznesu.
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed mb-10">
+                    Nowoczesne Rozwiązania i Profesjonalne Doradztwo. Świadczymy najwyższej jakości usługi dla klientów indywidualnych i przedsiębiorstw. Gwarantujemy indywidualne podejście, terminowość i transparentne warunki współpracy.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="tel:+48 575 553 516" class="bg-violet-600 hover:bg-violet-700 text-white px-8 py-3.5 rounded-md font-medium transition-colors flex items-center gap-2 text-base">
+                        Skontaktuj się
+                    </a>
+                    <a href="#uslugi" class="bg-white border border-slate-300 hover:border-slate-400 text-slate-800 px-8 py-3.5 rounded-md font-medium transition-colors flex items-center gap-2 text-base">
+                        Nasze Usługi
+                    </a>
+                </div>
+            </div>
+            <div class="relative hidden lg:block">
+                <div class="aspect-[4/3] rounded-lg overflow-hidden bg-slate-200 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=1200&q=80" 
+                         class="w-full h-full object-cover" alt="Profesjonalizm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="uslugi" class="py-24 px-6 md:px-12 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-2xl mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight">Czym się zajmujemy</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Dostarczamy sprawdzone, nowoczesne rozwiązania dopasowane do Twoich potrzeb.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="col-span-full prose max-w-none text-slate-700">
+                    
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-lg bg-violet-50 flex items-center justify-center mb-4"><i data-lucide="check-circle-2" class="text-violet-600 w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-900">Doradztwo & Audyt</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Dokładna analiza potrzeb, identyfikacja obszarów do optymalizacji i stworzenie skutecznego planu działania.</p>
+                </div>
+                <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-lg bg-violet-50 flex items-center justify-center mb-4"><i data-lucide="shield-check" class="text-violet-600 w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-900">Realizacja & Wdrożenie</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Kompleksowe wykonanie usług z zachowaniem rygorystycznych standardów branżowych i terminów.</p>
+                </div>
+                <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-lg bg-violet-50 flex items-center justify-center mb-4"><i data-lucide="headphones" class="text-violet-600 w-6 h-6"></i></div>
+                    <h3 class="text-xl font-bold mb-2 text-slate-900">Wsparcie & Obsługa</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Bieżąca opieka, doradztwo posprzedażowe oraz dedykowany opiekun klienta na każdym etapie.</p>
+                </div>
+            </div>
+        
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="aspect-[4/3] rounded-lg overflow-hidden bg-slate-200 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+                         class="w-full h-full object-cover" alt="Zespół">
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8 tracking-tight">Doświadczenie i Jakość</h2>
+                <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                    Nasz zespół to wykwalifikowani specjaliści z wieloletnim doświadczeniem. Pomagamy realizować ambitne cele, optymalizować koszty i wdrażać niezawodne rozwiązania w całym kraju.
+                </p>
+                <blockquote class="pl-6 border-l-2 border-violet-600 text-slate-800 text-lg font-medium leading-relaxed">
+                    "Sukces to połączenie rzetelności, profesjonalizmu i ciągłego doskonalenia."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section class="py-24 px-6 md:px-12 bg-slate-900 text-slate-300">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 tracking-tight text-white">Kontakt</h2>
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-violet-500 mt-1 shrink-0"></i>
+                        <div>
+                            <div class="text-sm font-medium text-slate-400 mb-1">Nasze Biuro</div>
+                            <div class="text-lg font-medium text-white">ul. Złota 44, Warszawa</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="clock" class="w-5 h-5 text-violet-500 mt-1 shrink-0"></i>
+                        <div>
+                            <div class="text-sm font-medium text-slate-400 mb-1">Godziny Pracy</div>
+                            <div class="text-lg font-medium text-white">Poniedziałek - Piątek: 08:00 - 17:00</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="phone" class="w-5 h-5 text-violet-500 mt-1 shrink-0"></i>
+                        <div>
+                            <div class="text-sm font-medium text-slate-400 mb-1">Zadzwoń do nas</div>
+                            <a href="tel:+48 575 553 516" class="text-2xl font-bold text-white hover:text-violet-400 transition-colors">+48 575 553 516</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="h-[400px] rounded-lg overflow-hidden bg-slate-800">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    style="border:0;" 
+                    src="https://maps.google.com/maps?q=ul. Złota 44,Warszawa&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-12 bg-white text-slate-500 border-t border-slate-200 pb-32">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-lg font-bold text-slate-900 tracking-tight">Usługi Biznesowe Ekspert</div>
+            <div class="text-sm">Twój zaufany partner w realizacji każdego przedsięwzięcia.</div>
+            <div class="text-sm">&copy; 2026 Usługi Biznesowe Ekspert. Wszelkie prawa zastrzeżone.</div>
+        </div>
+    </footer>
+
+    <!-- Claim Website Banner -->
+    <div class="fixed bottom-0 left-0 w-full z-[100] bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-white">
+                <span class="font-medium text-base">Odbierz tę stronę dla swojej firmy!</span>
+                <span class="text-slate-400 text-sm ml-2">Gotowa do działania. Aktywacja w 24h.</span>
+            </div>
+            <a href="https://buy.stripe.com/28E28qdJo6VicXYgGgc7u06" class="bg-violet-600 text-white hover:bg-violet-700 px-6 py-2.5 rounded-md font-medium transition-colors text-sm">
+                Kupuję tę stronę (500 PLN + 75 PLN/mies.)
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
