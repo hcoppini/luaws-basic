@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nie Pytaj | Specialty Coffee</title>
+<meta content="Najwyższa Jakość i Profesjonalizm Dla Ciebie w Mieście {{city}}" name="description"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --color-bg: #FDFBF7; /* Warm light beige */
+            --color-text: #2B2118; /* Dark brown/black */
+            --color-accent: #C85A3C; /* Terracotta */
+            --color-secondary: #EADDCD; /* Soft warm wood/sand */
+            
+            --font-main: 'Outfit', sans-serif;
+            
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-weight: 500; line-height: 1.2; }
+        a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+        img { max-width: 100%; display: block; object-fit: cover; border-radius: 4px; }
+
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: var(--spacing-xl) 0; }
+        .text-center { text-align: center; }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--color-text);
+            color: var(--color-bg);
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 30px;
+            border: 2px solid var(--color-text);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover { background-color: transparent; color: var(--color-text); }
+        .btn-outline { background-color: transparent; color: var(--color-text); }
+        .btn-outline:hover { background-color: var(--color-text); color: var(--color-bg); }
+
+        /* Navigation */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0;
+            z-index: 100; transition: all 0.4s ease;
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(43, 33, 24, 0.05);
+        }
+
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-weight: 500; position: relative; }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+            background-color: var(--color-accent); transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; cursor: pointer;
+            font-size: 1.5rem; color: var(--color-text);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh; display: flex; align-items: center; justify-content: center;
+            padding-top: 80px;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        
+        .hero-content { opacity: 0; transform: translateX(-30px); animation: slideIn 1s forwards; }
+        .hero-content h1 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero-content p { font-size: 1.2rem; color: #666; margin-bottom: 2rem; max-width: 450px; }
+        
+        .hero-img {
+            position: relative;
+            opacity: 0; transform: translateX(30px); animation: slideIn 1s forwards 0.2s;
+        }
+        .hero-img img { border-radius: 20px; box-shadow: 20px 20px 0 var(--color-secondary); }
+
+        /* V60/Brew Guide Section */
+        .brew-section { background-color: var(--color-text); color: var(--color-bg); }
+        .brew-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .brew-text h2 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--color-accent); }
+        .brew-text p { color: #ccc; margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .brew-img img { border-radius: 200px 200px 0 0; }
+
+        /* Menu */
+        .menu-section { background-color: var(--color-bg); }
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .menu-col h3 { font-size: 2rem; margin-bottom: 2rem; color: var(--color-accent); }
+        
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; border-bottom: 1px dashed rgba(43,33,24,0.1); padding-bottom: 0.5rem; }
+        .menu-item-name { font-weight: 500; font-size: 1.1rem; }
+        .menu-item-price { font-weight: 700; }
+        
+        /* Beans */
+        .beans-section { background-color: var(--color-secondary); border-radius: 40px; margin: 0 2rem; padding: 4rem 2rem; text-align: center; }
+        .beans-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .beans-section p { max-width: 600px; margin: 0 auto 2rem; color: #555; }
+        
+        /* Footer */
+        footer { padding: 6rem 0 2rem; text-align: center; }
+        .footer-logo { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+        .footer-info { display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem; color: #666; flex-wrap: wrap; }
+        .footer-info div { display: flex; flex-direction: column; gap: 0.5rem; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-grid, .brew-grid, .menu-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-content { order: 2; text-align: center; }
+            .hero-content p { margin: 0 auto 2rem; }
+            .hero-img { order: 1; }
+            .brew-img img { border-radius: 20px; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background-color: var(--color-bg); flex-direction: column; justify-content: center;
+                transition: right 0.4s ease;
+            }
+            .nav-links.active { right: 0; }
+            .mobile-menu-btn { display: block; z-index: 101; }
+            .beans-section { margin: 0 1rem; border-radius: 20px; }
+            .footer-info { flex-direction: column; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<header>
+<div class="container nav-inner">
+<a class="logo" href="#">Nie Pytaj</a>
+<nav class="nav-links" id="navLinks">
+<a href="#about">Nasza Kawa</a>
+<a href="#menu">Menu</a>
+<a href="#beans">Ziarna</a>
+<a href="#contact">Kontakt</a>
+</nav>
+<button class="mobile-menu-btn" id="menuBtn">☰</button>
+</div>
+</header>
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-content">
+<h1>Kawa to nasza rzemieślnicza pasja.</h1>
+<p>Najwyższa Jakość i Profesjonalizm Dla Ciebie w Mieście {{city}}</p>
+<a class="btn" href="#menu">Zobacz Menu</a>
+</div>
+<div class="hero-img">
+<img alt="Barista przygotowujący kawę" src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&amp;w=2671&amp;auto=format&amp;fit=crop"/>
+</div>
+</div>
+</section>
+<section class="brew-section section-padding" id="about">
+<div class="container brew-grid">
+<div class="brew-img reveal">
+<img alt="Drip coffee" src="https://images.unsplash.com/photo-1495474472207-464a8d4ce69d?q=80&amp;w=2574&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="brew-text reveal">
+<h2>Specialty. Bez kompromisów.</h2>
+<p>Wybieramy ziarna z najlepszych palarni w Europie. Zwracamy uwagę na pochodzenie, obróbkę i profil sensoryczny. Każda filiżanka to efekt precyzji i szacunku do produktu.</p>
+<p>Od idealnie zbalansowanego espresso po owocowe i herbaciane napary z dripa i aeropressu. Przyjdź i porozmawiaj z naszymi baristami o kawie.</p>
+</div>
+</div>
+</section>
+<section class="menu-section section-padding" id="menu">
+<div class="container">
+<div class="text-center reveal" style="margin-bottom: 4rem;">
+<h2>Klasyki &amp; Alternatywy</h2>
+</div>
+<div class="menu-grid reveal">
+<div class="menu-col">
+<h3>Espresso Bar</h3>
+<div class="menu-item">
+<span class="menu-item-name">Espresso / Doppio</span>
+<span class="menu-item-price">10 / 13 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Flat White</span>
+<span class="menu-item-price">16 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Cappuccino</span>
+<span class="menu-item-price">15 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Latte</span>
+<span class="menu-item-price">17 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Tonic Espresso</span>
+<span class="menu-item-price">19 zł</span>
+</div>
+</div>
+<div class="menu-col">
+<h3>Przelew / Brew Bar</h3>
+<div class="menu-item">
+<span class="menu-item-name">Drip V60</span>
+<span class="menu-item-price">18 - 22 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Aeropress</span>
+<span class="menu-item-price">17 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Chemex (dla dwojga)</span>
+<span class="menu-item-price">28 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Batch Brew</span>
+<span class="menu-item-price">14 zł</span>
+</div>
+<div class="menu-item">
+<span class="menu-item-name">Cold Brew</span>
+<span class="menu-item-price">16 zł</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section-padding" id="beans">
+<div class="beans-section reveal">
+<h2>Pij dobrą kawę w domu</h2>
+<p>Na naszych półkach znajdziesz świeżo palone ziarna pod espresso i pod filtry od zaprzyjaźnionych palarni, a także akcesoria do parzenia.</p>
+<a class="btn btn-outline" href="#contact">Odwiedź Nas</a>
+</div>
+</section>
+<footer id="contact">
+<div class="container">
+<div class="footer-logo"><img alt="Logo" src="/images/icons/FBLogo_Blueprint.png" style="height:40px; border-radius: 50%;"/></div>
+<div class="footer-info">
+<div>
+<strong>Adres</strong>
+<span>Skupiona 1/93-32.3, 93-323 Łódź, Poland</span>
+<span>Łódź [IRL Bałuty]</span>
+</div>
+<div>
+<strong>Godziny</strong>
+<span>Poniedziałek - Piątek: 08:00 - 18:00</span>
+</div>
+<div>
+<strong>Kontakt</strong>
+<span>792 114 611</span>
+<span>hello@{{ business_name | lower | replace(' ', '') }}.pl</span>
+</div>
+</div>
+<div style="font-size: 0.8rem; color: #999;">© 2026 Nie Pytaj. Created by Agency.</div>
+</div>
+</footer>
+<script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.innerHTML = '☰';
+            });
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach((reveal) => {
+                if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
