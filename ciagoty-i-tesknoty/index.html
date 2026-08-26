@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ciągoty i Tęsknoty | Fine Dining Warszawa</title>
+<meta content="Sztuka Kulinarna i Niezapomniane Smaki ({{city}})" name="description"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Montserrat:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --color-bg: #121619; /* Deep charcoal/almost black */
+            --color-text: #F5F5F5; /* Off-white */
+            --color-accent: #D4AF37; /* Gold */
+            --color-secondary: #1C2226; /* Slightly lighter charcoal */
+            
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            color: var(--color-accent);
+        }
+
+        a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: var(--spacing-xl) 0; }
+        .text-center { text-align: center; }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: transparent;
+            color: var(--color-accent);
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--color-accent);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 100;
+            transition: all 0.4s ease;
+            background: rgba(18, 22, 25, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-accent);
+            letter-spacing: 2px;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-links a:hover { color: var(--color-accent); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; cursor: pointer;
+            font-size: 1.5rem; color: var(--color-accent);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+        }
+        .hero-bg img { width: 100%; height: 100%; filter: brightness(0.4); }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            animation: fadeUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero h1 { font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1rem; color: #FFF; }
+        .hero p { font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 2.5rem; color: #ccc; text-transform: uppercase; }
+
+        /* Story */
+        .story { background-color: var(--color-secondary); }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .story-img { height: 600px; border: 1px solid rgba(212, 175, 55, 0.2); padding: 1rem; }
+        .story-img img { width: 100%; height: 100%; }
+        .story-text h2 { font-size: 3rem; margin-bottom: 2rem; }
+        .story-text p { color: #aaa; margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 300; }
+
+        /* Menu Highlights */
+        .menu-section { background-color: var(--color-bg); }
+        .menu-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+            max-width: 900px; margin: 0 auto;
+        }
+        .menu-category h3 { font-size: 2rem; margin-bottom: 2rem; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 1rem; }
+        .menu-item { margin-bottom: 1.5rem; }
+        .menu-item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+        .menu-item-title { font-family: var(--font-heading); font-size: 1.2rem; letter-spacing: 1px; color: #FFF; }
+        .menu-item-price { color: var(--color-accent); font-family: var(--font-heading); }
+        .menu-item-desc { color: #888; font-size: 0.9rem; font-weight: 300; }
+
+        /* Tasting Menu Banner */
+        .tasting-banner {
+            background: linear-gradient(rgba(18, 22, 25, 0.8), rgba(18, 22, 25, 0.8)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover; background-attachment: fixed; background-position: center;
+            text-align: center; padding: 8rem 2rem; border-top: 1px solid var(--color-accent); border-bottom: 1px solid var(--color-accent);
+        }
+        .tasting-banner h2 { font-size: 4rem; margin-bottom: 1rem; color: #FFF; }
+        .tasting-banner p { font-size: 1.2rem; color: var(--color-accent); margin-bottom: 2rem; letter-spacing: 2px; }
+
+        /* Footer */
+        footer { background-color: var(--color-secondary); padding: 4rem 0 2rem; border-top: 1px solid rgba(212, 175, 55, 0.1); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem; text-align: center; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.5rem; letter-spacing: 2px; }
+        .footer-col p, .footer-col a { color: #888; font-size: 0.95rem; margin-bottom: 0.5rem; display: block; }
+        .footer-col a:hover { color: var(--color-accent); }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.8rem; color: #555; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .story-grid, .menu-grid { grid-template-columns: 1fr; }
+            .story-img { height: 400px; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background-color: var(--color-bg); flex-direction: column; justify-content: center;
+                transition: right 0.4s ease;
+            }
+            .nav-links.active { right: 0; }
+            .mobile-menu-btn { display: block; z-index: 101; }
+            .hero h1 { font-size: 3.5rem; }
+            .tasting-banner h2 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+<header>
+<div class="container nav-inner">
+<a class="logo" href="#">Ciągoty i Tęsknoty</a>
+<nav class="nav-links" id="navLinks">
+<a href="#story">Historia</a>
+<a href="#menu">Menu</a>
+<a href="#tasting">Degustacja</a>
+<a href="#contact">Kontakt</a>
+<a class="btn" href="#reservation" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Rezerwacja</a>
+</nav>
+<button class="mobile-menu-btn" id="menuBtn">☰</button>
+</div>
+</header>
+<section class="hero">
+<div class="hero-bg">
+<img alt="Fine Dining" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="hero-content">
+<h1>Ciągoty i Tęsknoty</h1>
+<p>Sztuka Kulinarna i Niezapomniane Smaki ({{city}})</p>
+<a class="btn" href="#reservation">Zarezerwuj Stolik</a>
+</div>
+</section>
+<section class="story section-padding" id="story">
+<div class="container story-grid">
+<div class="story-img reveal">
+<img alt="Chef" src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9ce?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="story-text reveal">
+<h2>Sztuka Kulinarna</h2>
+<p>Nasza kuchnia to hołd dla polskiej tradycji, zinterpretowanej na nowo przez pryzmat nowoczesnych technik kulinarnych i najwyższej jakości produktów od lokalnych dostawców.</p>
+<p>Każde danie to starannie skomponowane dzieło, które ma pobudzać wszystkie zmysły. Zapraszamy w niezwykłą podróż pełną smaków, tekstur i aromatów.</p>
+</div>
+</div>
+</section>
+<section class="menu-section section-padding" id="menu">
+<div class="container">
+<div class="text-center reveal" style="margin-bottom: 4rem;">
+<h2>Menu A La Carte</h2>
+<p style="color: #888; margin-top: 1rem;">Selekcja naszych flagowych dań</p>
+</div>
+<div class="menu-grid reveal">
+<div class="menu-category">
+<h3>Przystawki</h3>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Tatar z Jelenia</span>
+<span class="menu-item-price">65 PLN</span>
+</div>
+<span class="menu-item-desc">Piklowana gorczyca, żółtko przepiórcze, lubczyk, chrust z pora</span>
+</div>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Przegrzebki</span>
+<span class="menu-item-price">75 PLN</span>
+</div>
+<span class="menu-item-desc">Mus z kalafiora, trufla, emulsja maślana z ikrą</span>
+</div>
+</div>
+<div class="menu-category">
+<h3>Dania Główne</h3>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Polędwica Wołowa</span>
+<span class="menu-item-price">145 PLN</span>
+</div>
+<span class="menu-item-desc">Puree selerowe, szpik kostny, demi-glace z czarnym bzem</span>
+</div>
+<div class="menu-item">
+<div class="menu-item-header">
+<span class="menu-item-title">Jesiotr</span>
+<span class="menu-item-price">120 PLN</span>
+</div>
+<span class="menu-item-desc">Kremowy pęczak, szyjki rakowe, sos koperkowy, palone masło</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="tasting-banner reveal" id="tasting">
+<h2>Menu Degustacyjne</h2>
+<p>7 MOMENTÓW | 420 PLN</p>
+<p style="font-size: 0.9rem; color: #888; font-family: var(--font-body); margin-bottom: 2rem;">Wine Pairing + 250 PLN</p>
+<a class="btn" href="#reservation">Odkryj Doświadczenie</a>
+</section>
+<footer id="contact">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>Rezerwacje</h4>
+<a href="tel:42 650 87 94">42 650 87 94</a>
+<a href="mailto:rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl">rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl</a>
+</div>
+<div class="footer-col">
+<h4>Lokalizacja</h4>
+<p>Wojska Polskiego 144A, 91-711 Łódź, Poland</p>
+<p>Łódź [IRL Bałuty]</p>
+</div>
+<div class="footer-col">
+<h4>Godziny Otwarcia</h4>
+<p>Wtorek - Niedziela: 12:00 - 22:00 | Poniedziałek: Zamknięte</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Ciągoty i Tęsknoty. Wszelkie prawa zastrzeżone.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.innerHTML = '☰';
+            });
+        });
+
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach((reveal) => {
+                if (reveal.getBoundingClientRect().top < windowHeight - 100) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
