@@ -1,330 +1,319 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
-<html lang="pl">
+<html class="scroll-smooth" lang="pl">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ALE WAŁEK | Fine Dining Warszawa</title>
-<meta content="Sztuka Kulinarna i Niezapomniane Smaki ({{city}})" name="description"/>
+<title>ALE WAŁEK | Łódź</title>
+<meta content="W sercu łódzkiej Górnej, odkryj naszą rodzinną przystań smaku, gdzie każde ręcznie lepione danie to hołd dla autentycznej, polskiej kuchni. Poczuj ciepło domowego ogniska w każdym kęsie." name="description"/>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Montserrat:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --color-bg: #121619; /* Deep charcoal/almost black */
-            --color-text: #F5F5F5; /* Off-white */
-            --color-accent: #D4AF37; /* Gold */
-            --color-secondary: #1C2226; /* Slightly lighter charcoal */
-            
-            --font-heading: 'Cinzel', serif;
-            --font-body: 'Montserrat', sans-serif;
-            
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 8rem;
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- TailwindCSS & Lucide Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#f1c86a',
+                            500: '#e5a93c',
+                            600: '#b87e22',
+                        },
+                        charcoal: {
+                            800: '#161c24',
+                            900: '#0f141a',
+                            950: '#080b0f',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    </script>
+<style>
         body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080b0f;
+            color: #f8fafc;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            font-weight: 400;
-            color: var(--color-accent);
+        .serif-font { font-family: 'Cinzel', serif; }
+        .glass-card {
+            background: rgba(22, 28, 36, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(241, 200, 106, 0.12);
         }
-
-        a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
-        img { max-width: 100%; display: block; object-fit: cover; }
-
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .section-padding { padding: var(--spacing-xl) 0; }
-        .text-center { text-align: center; }
-        
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: transparent;
-            color: var(--color-accent);
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: 1px solid var(--color-accent);
-            transition: all 0.4s ease;
-            cursor: pointer;
+        .glass-card:hover {
+            border-color: rgba(241, 200, 106, 0.35);
         }
-
-        .btn:hover {
-            background-color: var(--color-accent);
-            color: var(--color-bg);
-        }
-
-        /* Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 0;
-            z-index: 100;
-            transition: all 0.4s ease;
-            background: rgba(18, 22, 25, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            color: var(--color-accent);
-            letter-spacing: 2px;
-        }
-
-        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-        .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
-        .nav-links a:hover { color: var(--color-accent); }
-
-        .mobile-menu-btn {
-            display: none; background: none; border: none; cursor: pointer;
-            font-size: 1.5rem; color: var(--color-accent);
-        }
-
-        /* Hero */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-        }
-        .hero-bg img { width: 100%; height: 100%; filter: brightness(0.4); }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            animation: fadeUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .hero h1 { font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1rem; color: #FFF; }
-        .hero p { font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 2.5rem; color: #ccc; text-transform: uppercase; }
-
-        /* Story */
-        .story { background-color: var(--color-secondary); }
-        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .story-img { height: 600px; border: 1px solid rgba(212, 175, 55, 0.2); padding: 1rem; }
-        .story-img img { width: 100%; height: 100%; }
-        .story-text h2 { font-size: 3rem; margin-bottom: 2rem; }
-        .story-text p { color: #aaa; margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 300; }
-
-        /* Menu Highlights */
-        .menu-section { background-color: var(--color-bg); }
-        .menu-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-            max-width: 900px; margin: 0 auto;
-        }
-        .menu-category h3 { font-size: 2rem; margin-bottom: 2rem; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 1rem; }
-        .menu-item { margin-bottom: 1.5rem; }
-        .menu-item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
-        .menu-item-title { font-family: var(--font-heading); font-size: 1.2rem; letter-spacing: 1px; color: #FFF; }
-        .menu-item-price { color: var(--color-accent); font-family: var(--font-heading); }
-        .menu-item-desc { color: #888; font-size: 0.9rem; font-weight: 300; }
-
-        /* Tasting Menu Banner */
-        .tasting-banner {
-            background: linear-gradient(rgba(18, 22, 25, 0.8), rgba(18, 22, 25, 0.8)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2670&auto=format&fit=crop');
-            background-size: cover; background-attachment: fixed; background-position: center;
-            text-align: center; padding: 8rem 2rem; border-top: 1px solid var(--color-accent); border-bottom: 1px solid var(--color-accent);
-        }
-        .tasting-banner h2 { font-size: 4rem; margin-bottom: 1rem; color: #FFF; }
-        .tasting-banner p { font-size: 1.2rem; color: var(--color-accent); margin-bottom: 2rem; letter-spacing: 2px; }
-
-        /* Footer */
-        footer { background-color: var(--color-secondary); padding: 4rem 0 2rem; border-top: 1px solid rgba(212, 175, 55, 0.1); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem; text-align: center; }
-        .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.5rem; letter-spacing: 2px; }
-        .footer-col p, .footer-col a { color: #888; font-size: 0.95rem; margin-bottom: 0.5rem; display: block; }
-        .footer-col a:hover { color: var(--color-accent); }
-        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.8rem; color: #555; }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .story-grid, .menu-grid { grid-template-columns: 1fr; }
-            .story-img { height: 400px; }
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-                background-color: var(--color-bg); flex-direction: column; justify-content: center;
-                transition: right 0.4s ease;
-            }
-            .nav-links.active { right: 0; }
-            .mobile-menu-btn { display: block; z-index: 101; }
-            .hero h1 { font-size: 3.5rem; }
-            .tasting-banner h2 { font-size: 2.5rem; }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #f1c86a 50%, #b87e22 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
-<header>
-<div class="container nav-inner">
-<a class="logo" href="#">ALE WAŁEK</a>
-<nav class="nav-links" id="navLinks">
-<a href="#story">Historia</a>
-<a href="#menu">Menu</a>
-<a href="#tasting">Degustacja</a>
-<a href="#contact">Kontakt</a>
-<a class="btn" href="#reservation" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Rezerwacja</a>
+<body class="selection:bg-gold-500 selection:text-black">
+<!-- Demonstration Header -->
+<div class="bg-gradient-to-r from-amber-950/80 via-slate-900 to-amber-950/80 border-b border-gold-500/20 text-slate-200 text-xs py-2.5 px-4 sticky top-0 z-[60] backdrop-blur-md">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<span class="flex items-center gap-2">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+</span>
+<span>Wersja demonstracyjna przygotowana dla: <strong>ALE WAŁEK</strong></span>
+</span>
+<a class="hidden sm:inline-flex items-center gap-1.5 bg-gold-500 hover:bg-gold-400 text-black px-4 py-1 rounded-full text-xs font-semibold transition shadow-lg shadow-gold-500/20" href="https://buy.stripe.com/28E28qdJo6VicXYgGgc7u06">
+<span>Kupuję stronę (500 PLN + 75 PLN/mies.)</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+<!-- Navigation -->
+<header class="sticky top-[37px] z-50 bg-charcoal-950/80 backdrop-blur-xl border-b border-white/5 py-4 px-6 md:px-12">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<a class="serif-font text-2xl font-bold tracking-wider gold-gradient-text" href="#">ALE WAŁEK</a>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+<a class="hover:text-gold-400 transition" href="#o-nas">O Nas</a>
+<a class="hover:text-gold-400 transition" href="#oferta">Menu</a>
+<a class="hover:text-gold-400 transition" href="#dlaczego-my">Doświadczenie</a>
+<a class="hover:text-gold-400 transition" href="#kontakt">Kontakt</a>
 </nav>
-<button class="mobile-menu-btn" id="menuBtn">☰</button>
+<a class="inline-flex items-center gap-2 bg-gold-500/10 hover:bg-gold-500/20 text-gold-400 border border-gold-500/30 px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition" href="tel:794 907 107">
+<i class="w-4 h-4" data-lucide="phone"></i>
+<span>794 907 107</span>
+</a>
 </div>
 </header>
-<section class="hero">
-<div class="hero-bg">
-<img alt="Fine Dining" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center py-20 px-6 overflow-hidden">
+<!-- Background Graphic -->
+<div class="absolute inset-0 z-0">
+<img alt="ALE WAŁEK" class="w-full h-full object-cover brightness-[0.25] scale-105 transform duration-1000" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/60 to-transparent"></div>
 </div>
-<div class="hero-content">
-<h1>ALE WAŁEK</h1>
-<p>Sztuka Kulinarna i Niezapomniane Smaki ({{city}})</p>
-<a class="btn" href="#reservation">Zarezerwuj Stolik</a>
+<div class="relative z-10 max-w-4xl mx-auto text-center">
+<!-- Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs md:text-sm font-medium mb-6 backdrop-blur-md">
+<i class="w-4 h-4" data-lucide="award"></i>
+<span>Łódzka Sztuka Wałkowania</span>
 </div>
-</section>
-<section class="story section-padding" id="story">
-<div class="container story-grid">
-<div class="story-img reveal">
-<img alt="Chef" src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9ce?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/>
-</div>
-<div class="story-text reveal">
-<h2>Sztuka Kulinarna</h2>
-<p>Nasza kuchnia to hołd dla polskiej tradycji, zinterpretowanej na nowo przez pryzmat nowoczesnych technik kulinarnych i najwyższej jakości produktów od lokalnych dostawców.</p>
-<p>Każde danie to starannie skomponowane dzieło, które ma pobudzać wszystkie zmysły. Zapraszamy w niezwykłą podróż pełną smaków, tekstur i aromatów.</p>
-</div>
-</div>
-</section>
-<section class="menu-section section-padding" id="menu">
-<div class="container">
-<div class="text-center reveal" style="margin-bottom: 4rem;">
-<h2>Menu A La Carte</h2>
-<p style="color: #888; margin-top: 1rem;">Selekcja naszych flagowych dań</p>
-</div>
-<div class="menu-grid reveal">
-<div class="menu-category">
-<h3>Przystawki</h3>
-<div class="menu-item">
-<div class="menu-item-header">
-<span class="menu-item-title">Tatar z Jelenia</span>
-<span class="menu-item-price">65 PLN</span>
-</div>
-<span class="menu-item-desc">Piklowana gorczyca, żółtko przepiórcze, lubczyk, chrust z pora</span>
-</div>
-<div class="menu-item">
-<div class="menu-item-header">
-<span class="menu-item-title">Przegrzebki</span>
-<span class="menu-item-price">75 PLN</span>
-</div>
-<span class="menu-item-desc">Mus z kalafiora, trufla, emulsja maślana z ikrą</span>
-</div>
-</div>
-<div class="menu-category">
-<h3>Dania Główne</h3>
-<div class="menu-item">
-<div class="menu-item-header">
-<span class="menu-item-title">Polędwica Wołowa</span>
-<span class="menu-item-price">145 PLN</span>
-</div>
-<span class="menu-item-desc">Puree selerowe, szpik kostny, demi-glace z czarnym bzem</span>
-</div>
-<div class="menu-item">
-<div class="menu-item-header">
-<span class="menu-item-title">Jesiotr</span>
-<span class="menu-item-price">120 PLN</span>
-</div>
-<span class="menu-item-desc">Kremowy pęczak, szyjki rakowe, sos koperkowy, palone masło</span>
-</div>
-</div>
+<!-- Main Headline -->
+<h1 class="serif-font text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 gold-gradient-text tracking-wide">
+                ALE WAŁEK: Gdzie Smak Tradycji Rodzi Się z Pasji do Ciasta
+            </h1>
+<!-- Subheadline -->
+<p class="text-slate-300 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-10">
+                W sercu łódzkiej Górnej, odkryj naszą rodzinną przystań smaku, gdzie każde ręcznie lepione danie to hołd dla autentycznej, polskiej kuchni. Poczuj ciepło domowego ogniska w każdym kęsie.
+            </p>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold-500 hover:bg-gold-400 text-black px-8 py-4 rounded-full font-bold text-sm tracking-wider uppercase transition shadow-xl shadow-gold-500/25" href="tel:794 907 107">
+<i class="w-4 h-4" data-lucide="calendar"></i>
+<span>Zapraszamy do Stołu ALE WAŁEK</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/15 px-8 py-4 rounded-full font-semibold text-sm transition backdrop-blur-md" href="#oferta">
+<span>Zobacz Kartę</span>
+<i class="w-4 h-4" data-lucide="chevron-down"></i>
+</a>
 </div>
 </div>
 </section>
-<section class="tasting-banner reveal" id="tasting">
-<h2>Menu Degustacyjne</h2>
-<p>7 MOMENTÓW | 420 PLN</p>
-<p style="font-size: 0.9rem; color: #888; font-family: var(--font-body); margin-bottom: 2rem;">Wine Pairing + 250 PLN</p>
-<a class="btn" href="#reservation">Odkryj Doświadczenie</a>
+<!-- Story / About Section -->
+<section class="py-24 px-6 md:px-12 bg-charcoal-900 relative" id="o-nas">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-[4/5] rounded-3xl overflow-hidden border border-gold-500/20 shadow-2xl relative">
+<img alt="Klimat lokalu" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+</div>
+<div class="absolute -bottom-6 -right-6 hidden sm:block p-6 glass-card rounded-2xl max-w-xs shadow-2xl">
+<div class="flex items-center gap-3 text-gold-400 mb-2">
+<i class="w-6 h-6" data-lucide="heart-handshake"></i>
+<span class="font-bold text-sm">Lokalne Rzemiosło</span>
+</div>
+<p class="text-xs text-slate-300">Wszystkie potrawy przygotowywane na miejscu ze świeżych składników.</p>
+</div>
+</div>
+<div>
+<div class="inline-flex items-center gap-2 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-4">
+<i class="w-4 h-4" data-lucide="sparkles"></i>
+<span>O Naszym Lokalu</span>
+</div>
+<h2 class="serif-font text-3xl sm:text-4xl md:text-5xl font-bold mb-8 gold-gradient-text">
+                    O Nas: Rytuał Tworzenia Smaku
+                </h2>
+<div class="space-y-6 text-slate-300 leading-relaxed font-light text-base md:text-lg">
+<p>W ALE WAŁEK wierzymy, że jedzenie to nie tylko zaspokojenie głodu, ale przede wszystkim celebracja wspólnych chwil i powrót do najcenniejszych wspomnień. Jesteśmy małą, rodzinną pierogarnią z Łodzi, która z prawdziwym oddaniem kultywuje sztukę polskiej kuchni, karmiąc Państwa smakami pamiętanymi z dzieciństwa.</p>
+<p>Z pasją i precyzją, z dumą lepimy każdy pieróg i pielmieni, korzystając wyłącznie z najświeższych, wyselekcjonowanych składników od zaufanych, lokalnych dostawców. Od idealnie gładkiego ciasta, przez autorskie nadzienia, aż po staranne wykończenie – wkładamy serce w każdy detal, by na Państwa talerzu znalazła się esencja domowej jakości i tradycji.</p>
+</div>
+<div class="mt-10 p-6 rounded-2xl bg-charcoal-800/80 border border-gold-500/15 border-l-4 border-l-gold-500">
+<p class="italic text-slate-200 font-serif text-base">Dla nas 'wałek' to coś więcej niż narzędzie – to symbol cierpliwości, miłości do rzemiosła i nieustannej pogoni za doskonałością smaku, który łączy pokolenia.</p>
+</div>
+</div>
+</div>
 </section>
-<footer id="contact">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-col">
-<h4>Rezerwacje</h4>
-<a href="tel:794 907 107">794 907 107</a>
-<a href="mailto:rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl">rezerwacje@{{ business_name | lower | replace(' ', '') }}.pl</a>
+<!-- Menu / Offer Section -->
+<section class="py-24 px-6 md:px-12 bg-charcoal-950 relative" id="oferta">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-3">
+<i class="w-4 h-4" data-lucide="utensils"></i>
+<span>Starannie Wyselekcjonowane</span>
 </div>
-<div class="footer-col">
-<h4>Lokalizacja</h4>
-<p>Pabianicka 88, 93-548 Łódź, Poland</p>
-<p>Łódź [IRL Górna]</p>
+<h2 class="serif-font text-3xl sm:text-5xl font-bold mb-4 gold-gradient-text">Karta Wałkowanych Przyjemności</h2>
+<p class="text-slate-400 text-sm sm:text-base">Podróż kulinarna przez autentyczne smaki, lepione z sercem i tradycją.</p>
 </div>
-<div class="footer-col">
-<h4>Godziny Otwarcia</h4>
-<p>Wtorek - Niedziela: 12:00 - 22:00 | Poniedziałek: Zamknięte</p>
+<!-- Dynamic Items Grid -->
+<div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Pierogi Ruskie Premium</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Klasyka polskiej kuchni w wydaniu ALE WAŁEK – delikatne ciasto skrywające aksamitne nadzienie z ziemniaków i twarogu, aromatyzowane prażoną cebulką i świeżo mielonym pieprzem. Serwowane z chrupiącymi skwarkami.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">29 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Pierogi z Gęsiną i Żurawiną</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Unikalna kompozycja smaków – soczysta, wolno duszona gęsina, subtelnie połączona z kwaskową żurawiną, zamknięta w idealnie cienkim cieście. Wykwintne doznanie.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">39 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Placki Ziemniaczane z Gulaszem Wołowym</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Złociste, perfekcyjnie chrupiące placki ziemniaczane, serwowane z esencjonalnym, wolno duszonym gulaszem wołowym z leśnymi grzybami. Sycące i pełne smaku.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">34 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Naleśniki Słodki Powrót do Dzieciństwa</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Puszyste, domowe naleśniki z kremowym twarogiem i musem z prażonych jabłek z cynamonem. Delikatny deser, który przypomina letnie popołudnia u babci.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">26 zł</div>
 </div>
 </div>
-<div class="footer-bottom">
-<p>© 2026 ALE WAŁEK. Wszelkie prawa zastrzeżone.</p>
+<div class="mt-12 text-center">
+<a class="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-black px-8 py-4 rounded-full font-bold text-sm tracking-wider uppercase transition shadow-xl shadow-gold-500/20" href="tel:794 907 107">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>Zamów lub Zarezerwuj: 794 907 107</span>
+</a>
 </div>
+</div>
+</section>
+<!-- Highlights Section -->
+<section class="py-24 px-6 md:px-12 bg-charcoal-900 border-y border-white/5" id="dlaczego-my">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-xl mx-auto mb-16">
+<h2 class="serif-font text-3xl sm:text-4xl font-bold mb-4 gold-gradient-text">Co Nas Wyróżnia</h2>
+<p class="text-slate-400 text-sm">Trzy filary naszej codziennej pracy dla naszych gości</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="sparkles"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Ręcznie Lepiona Perfekcja</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Każde danie wychodzące z naszej kuchni jest efektem misternych, ręcznych prac, co gwarantuje niepowtarzalny smak i autentyczność, której nie znajdziesz nigdzie indziej.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="shield-check"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Sekrety Babcinych Receptur</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Kultywujemy sprawdzone, pokoleniowe przepisy, które odtwarzamy z dbałością o najmniejszy szczegół, by każdy kęs był prawdziwą podróżą do tradycji.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="award"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Świeżość z Łódzkich Pól</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Stawiamy na sezonowe, lokalne składniki, dostarczane prosto od zaufanych rolników z regionu łódzkiego, zapewniając niezrównaną jakość i świeżość w każdym daniu.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Location & Contact Footer -->
+<footer class="py-20 px-6 md:px-12 bg-black relative border-t border-gold-500/10" id="kontakt">
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-16">
+<div>
+<h3 class="serif-font text-2xl font-bold gold-gradient-text mb-4">ALE WAŁEK</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">W sercu łódzkiej Górnej, odkryj naszą rodzinną przystań smaku, gdzie każde ręcznie lepione danie to hołd dla autentycznej, polskiej kuchni. Poczuj ciepło domowego ogniska w każdym kęsie.</p>
+<div class="inline-flex items-center gap-2 text-xs text-gold-400/80">
+<i class="w-4 h-4 text-emerald-400" data-lucide="check-circle"></i>
+<span>Zweryfikowana wizytówka Google Maps</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-200 mb-4 tracking-wider uppercase text-xs">Lokalizacja &amp; Kontakt</h4>
+<div class="space-y-3 text-sm text-slate-300">
+<div class="flex items-start gap-3">
+<i class="w-5 h-5 text-gold-400 shrink-0 mt-0.5" data-lucide="map-pin"></i>
+<span>Pabianicka 88, 93-548 Łódź, Poland, Łódź</span>
+</div>
+<div class="flex items-center gap-3">
+<i class="w-5 h-5 text-gold-400 shrink-0" data-lucide="phone"></i>
+<a class="hover:text-gold-400 transition" href="tel:794 907 107">794 907 107</a>
+</div>
+<div class="flex items-center gap-3">
+<i class="w-5 h-5 text-gold-400 shrink-0" data-lucide="clock"></i>
+<span>Wtorek - Niedziela: 12:00 - 22:00 | Poniedziałek: Zamknięte</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-200 mb-4 tracking-wider uppercase text-xs">Dojazd i Rezerwacje</h4>
+<p class="text-slate-400 text-sm mb-6">Odwiedź nas osobiście lub skontaktuj się, aby zarezerwować termin.</p>
+<div class="flex flex-col gap-3">
+<a class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white py-3 px-6 rounded-xl text-sm font-medium transition" href="https://maps.google.com/?cid=13900592132097003222" rel="noopener" target="_blank">
+<i class="w-4 h-4 text-emerald-400" data-lucide="navigation"></i>
+<span>Wyznacz Trasę w Google Maps</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-black py-3 px-6 rounded-xl text-sm font-bold transition" href="tel:794 907 107">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>Zadzwoń do Lokalu</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+<p>© 2026 ALE WAŁEK. Wszystkie prawa zastrzeżone.</p>
+<p>Strona przygotowana z dbałością o każdy detal przez <a class="text-gold-400 hover:underline" href="https://luaws.pl" target="_blank">LUA Web Solutions</a>.</p>
 </div>
 </footer>
+<!-- Mobile Floating Action Bar (Native Phone Experience) -->
+<div class="md:hidden fixed bottom-4 inset-x-4 z-50">
+<div class="bg-charcoal-950/95 backdrop-blur-2xl border border-gold-500/25 rounded-2xl p-2 shadow-2xl flex items-center justify-around gap-2 text-white">
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 transition text-center" href="tel:794 907 107">
+<i class="w-5 h-5 text-gold-400 mb-1" data-lucide="phone-call"></i>
+<span class="text-[11px] font-medium tracking-wide">Zadzwoń</span>
+</a>
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 transition text-center" href="https://maps.google.com/?cid=13900592132097003222" rel="noopener" target="_blank">
+<i class="w-5 h-5 text-emerald-400 mb-1" data-lucide="navigation"></i>
+<span class="text-[11px] font-medium tracking-wide">Dojazd</span>
+</a>
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-gold-500 hover:bg-gold-400 active:scale-95 transition text-center font-bold text-black" href="#oferta">
+<i class="w-5 h-5 text-black mb-1" data-lucide="utensils"></i>
+<span class="text-[11px] tracking-wide">Menu</span>
+</a>
+</div>
+</div>
+<!-- Init Lucide Icons -->
 <script>
-        // Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-
-        // Close menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuBtn.innerHTML = '☰';
-            });
-        });
-
-        // Scroll Reveal
-        const reveals = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach((reveal) => {
-                if (reveal.getBoundingClientRect().top < windowHeight - 100) {
-                    reveal.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
+        lucide.createIcons();
     </script>
 </body>
 </html>
