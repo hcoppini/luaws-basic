@@ -1,299 +1,311 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
-<html lang="pl">
+<html class="scroll-smooth" lang="pl">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Oliwski Garaż Mechanika Pojazdowa Saab Serwis | Premium Auto Detailing</title>
-<meta content="Najwyższa Jakość i Profesjonalizm Dla Ciebie w Mieście {{city}}" name="description"/>
+<title>Oliwski Garaż Mechanika Pojazdowa Saab Serwis | Warsztat Samochodowy &amp; Serwis Gdańsk</title>
+<meta content="W sercu Gdańskiej Oliwy, z pasją i precyzją, przywracamy blask i niezawodność każdemu Saabowi. Powierz nam swoje szwedzkie arcydzieło." name="description"/>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --color-bg: #0A0A0A; /* Deep black */
-            --color-text: #FFFFFF; /* White */
-            --color-accent: #E50914; /* Racing Red */
-            --color-secondary: #1A1A1A; /* Dark gray */
-            
-            --font-heading: 'Teko', sans-serif;
-            --font-body: 'Roboto', sans-serif;
-            
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 8rem;
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- TailwindCSS & Lucide Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        steel: {
+                            800: '#1e2530',
+                            900: '#11161f',
+                            950: '#0a0d14',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Space Grotesk', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    </script>
+<style>
         body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0d14;
+            color: #f1f5f9;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
-        h1, h2, h3, h4 { font-family: var(--font-heading); text-transform: uppercase; line-height: 1.1; }
-        a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
-        img { max-width: 100%; display: block; object-fit: cover; }
-
-        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        .section-padding { padding: var(--spacing-xl) 0; }
-        .text-center { text-align: center; }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: var(--color-accent);
-            color: var(--color-text);
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 2px solid var(--color-accent);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            transform: skewX(-10deg);
-        }
-        
-        .btn span { display: inline-block; transform: skewX(10deg); }
-
-        .btn:hover { background-color: transparent; color: var(--color-accent); }
-
-        /* Navigation */
-        header {
-            position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0;
-            z-index: 100; transition: all 0.4s ease;
-            background: rgba(10, 10, 10, 0.9);
-            border-bottom: 2px solid var(--color-accent);
-        }
-
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 600; color: var(--color-text); }
-        .logo span { color: var(--color-accent); }
-        
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-family: var(--font-heading); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--color-accent); }
-
-        .mobile-menu-btn {
-            display: none; background: none; border: none; cursor: pointer;
-            font-size: 1.5rem; color: var(--color-text);
-        }
-
-        /* Hero */
-        .hero {
-            height: 100vh; display: flex; align-items: center;
-            background: linear-gradient(90deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 100%), url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2669&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-        }
-        .hero-content { max-width: 700px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s forwards 0.3s; }
-        .hero h1 { font-size: clamp(4rem, 8vw, 7rem); margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.2rem; color: #CCC; margin-bottom: 2.5rem; border-left: 4px solid var(--color-accent); padding-left: 1rem; }
-
-        /* Services */
-        .services { background-color: var(--color-bg); }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 4rem; color: var(--color-text); }
-        .section-header h2 span { color: var(--color-accent); }
-        
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card {
-            background-color: var(--color-secondary);
-            padding: 3rem 2rem;
-            border-bottom: 4px solid transparent;
+        .display-font { font-family: 'Space Grotesk', sans-serif; }
+        .mechanic-card {
+            background: rgba(17, 22, 31, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(245, 158, 11, 0.15);
             transition: all 0.3s ease;
         }
-        .service-card:hover { border-bottom-color: var(--color-accent); transform: translateY(-10px); }
-        .service-card h3 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .service-card p { color: #AAA; font-size: 0.95rem; }
-
-        /* Features/Why Us */
-        .features { background-color: var(--color-secondary); }
-        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .features-img { position: relative; }
-        .features-img img { border: 2px solid #333; }
-        .features-img::after {
-            content: ''; position: absolute; top: 20px; left: 20px;
-            width: 100%; height: 100%; border: 2px solid var(--color-accent); z-index: -1;
+        .mechanic-card:hover {
+            border-color: rgba(245, 158, 11, 0.45);
+            transform: translateY(-2px);
         }
-        .features-text h2 { font-size: 4rem; margin-bottom: 2rem; }
-        .feature-list { list-style: none; margin-top: 2rem; }
-        .feature-list li {
-            position: relative; padding-left: 2rem; margin-bottom: 1rem; font-weight: 500; font-size: 1.1rem;
-        }
-        .feature-list li::before {
-            content: '►'; position: absolute; left: 0; color: var(--color-accent); font-size: 0.8rem; top: 4px;
-        }
-
-        /* Gallery */
-        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-        .gallery-item { aspect-ratio: 16/9; overflow: hidden; }
-        .gallery-item img { width: 100%; height: 100%; transition: transform 0.5s ease; filter: grayscale(50%); }
-        .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
-
-        /* Footer */
-        footer { background-color: #050505; padding: 4rem 0 2rem; border-top: 1px solid #333; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-col h4 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-accent); }
-        .footer-col p, .footer-col a { color: #888; margin-bottom: 0.5rem; display: block; font-weight: 500; }
-        .footer-col a:hover { color: var(--color-text); }
-        .footer-bottom { text-align: center; border-top: 1px solid #222; padding-top: 2rem; font-size: 0.8rem; color: #555; }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Mobile */
-        @media (max-width: 992px) {
-            .features-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-                background-color: var(--color-bg); flex-direction: column; justify-content: center;
-                transition: right 0.4s ease; border-left: 2px solid var(--color-accent);
-            }
-            .nav-links.active { right: 0; }
-            .mobile-menu-btn { display: block; z-index: 101; }
-            .hero h1 { font-size: 4rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
+        .amber-gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #fde68a 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
-<header>
-<div class="container nav-inner">
-<a class="logo" href="#">Oliwski Garaż Mechanika Pojazdowa Saab Serwis <span>.</span></a>
-<nav class="nav-links" id="navLinks">
-<a href="#services">Usługi</a>
-<a href="#about">Dlaczego My</a>
-<a href="#gallery">Realizacje</a>
-<a href="#contact">Kontakt</a>
-<a class="btn" href="#contact" style="padding: 0.5rem 1.5rem; font-size: 1.2rem;"><span>Wycena</span></a>
+<body class="selection:bg-amber-500 selection:text-black">
+<!-- Demonstration Header -->
+<div class="bg-gradient-to-r from-slate-900 via-steel-950 to-slate-900 border-b border-amber-500/20 text-slate-300 text-xs py-2 px-4 sticky top-0 z-[60] backdrop-blur-md">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<span class="flex items-center gap-2">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+</span>
+<span>Wersja demonstracyjna przygotowana dla: <strong>Oliwski Garaż Mechanika Pojazdowa Saab Serwis</strong></span>
+</span>
+<a class="hidden sm:inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-black px-4 py-1 rounded-full text-xs font-bold transition shadow-lg shadow-amber-500/20" href="https://buy.stripe.com/28E28qdJo6VicXYgGgc7u06">
+<span>Kupuję stronę (500 PLN + 75 PLN/mies.)</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+<!-- Navigation -->
+<header class="sticky top-[33px] z-50 bg-steel-950/85 backdrop-blur-xl border-b border-white/5 py-4 px-6 md:px-12">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<a class="display-font text-xl md:text-2xl font-bold tracking-tight text-white flex items-center gap-2.5" href="#">
+<div class="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+<i class="w-5 h-5" data-lucide="wrench"></i>
+</div>
+<span>Oliwski Garaż Mechanika Pojazdowa Saab Serwis</span>
+</a>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+<a class="hover:text-amber-400 transition" href="#o-nas">O Warsztacie</a>
+<a class="hover:text-amber-400 transition" href="#oferta">Zakres Napraw</a>
+<a class="hover:text-amber-400 transition" href="#dlaczego-my">Gwarancja Jakości</a>
+<a class="hover:text-amber-400 transition" href="#kontakt">Kontakt &amp; Dojazd</a>
 </nav>
-<button class="mobile-menu-btn" id="menuBtn">☰</button>
+<a class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition shadow-lg shadow-amber-500/20" href="tel:609 202 084">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>609 202 084</span>
+</a>
 </div>
 </header>
-<section class="hero">
-<div class="container">
-<div class="hero-content">
-<h1>Bezkompromisowa Ochrona Lakieru</h1>
-<p>Najwyższa Jakość i Profesjonalizm Dla Ciebie w Mieście {{city}}</p>
-<a class="btn" href="#contact"><span>Umów Wizytę</span></a>
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center justify-center py-20 px-6 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Oliwski Garaż Mechanika Pojazdowa Saab Serwis" class="w-full h-full object-cover brightness-[0.2] scale-105 transform duration-1000" src="https://images.unsplash.com/photo-1554223090-e5bf45b1e60f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-steel-950 via-steel-950/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs md:text-sm font-medium mb-6 backdrop-blur-md">
+<i class="w-4 h-4" data-lucide="shield-check"></i>
+<span>Ekspert Saab • Gdańsk Oliwa</span>
+</div>
+<h1 class="display-font text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.15] mb-6 amber-gradient-text">
+                Oliwski Garaż: Gdzie Szwedzka Perfekcja Odzyskuje Swój Blask.
+            </h1>
+<p class="text-slate-300 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-10">
+                W sercu Gdańskiej Oliwy, z pasją i precyzją, przywracamy blask i niezawodność każdemu Saabowi. Powierz nam swoje szwedzkie arcydzieło.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-black px-8 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl shadow-amber-500/25" href="tel:609 202 084">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>Umów Wizytę w Oliwskim Garażu</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/15 px-8 py-4 rounded-xl font-semibold text-sm transition backdrop-blur-md" href="#oferta">
+<span>Zobacz Zakres Usług</span>
+<i class="w-4 h-4" data-lucide="arrow-down"></i>
+</a>
 </div>
 </div>
 </section>
-<section class="services section-padding" id="services">
-<div class="container">
-<div class="section-header reveal">
-<h2>Nasze <span>Usługi</span></h2>
-<p style="color: #888;">Najwyższy standard auto detailingu</p>
+<!-- About Section -->
+<section class="py-24 px-6 md:px-12 bg-steel-900 relative" id="o-nas">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
+<img alt="Sprzęt warsztatowy" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
 </div>
-<div class="services-grid">
-<div class="service-card reveal">
-<h3>Folie PPF</h3>
-<p>Samoregenerujące się folie ochronne. Niewidoczna i najskuteczniejsza ochrona przed odpryskami, zarysowaniami i agresywną chemią.</p>
+<div class="absolute -bottom-6 -right-6 hidden sm:block p-6 mechanic-card rounded-2xl max-w-xs shadow-2xl">
+<div class="flex items-center gap-2 text-amber-400 mb-1 font-bold text-sm">
+<i class="w-5 h-5" data-lucide="cpu"></i>
+<span>Komputerowa Diagnoza</span>
 </div>
-<div class="service-card reveal" style="transition-delay: 0.1s;">
-<h3>Powłoki Ceramiczne</h3>
-<p>Zaawansowane powłoki grafenowe i ceramiczne. Zapewniają niesamowity połysk, głębię koloru oraz silny efekt hydrofobowy.</p>
+<p class="text-xs text-slate-300">Precyzyjny odczyt parametrów bez zgadywania i naciągania.</p>
 </div>
-<div class="service-card reveal" style="transition-delay: 0.2s;">
-<h3>Korekta Lakieru</h3>
-<p>Wieloetapowe polerowanie. Usuwamy zarysowania, zmatowienia i hologramy, przywracając lakierowi fabryczny blask.</p>
 </div>
-<div class="service-card reveal" style="transition-delay: 0.3s;">
-<h3>Detailing Wnętrza</h3>
-<p>Kompleksowe czyszczenie i impregnacja skór oraz materiałów. Zabezpieczamy wnętrze przed przetarciami i brudem.</p>
+<div>
+<span class="text-amber-400 text-xs font-bold tracking-widest uppercase mb-3 block">O Naszym Serwisie</span>
+<h2 class="display-font text-3xl sm:text-4xl md:text-5xl font-bold mb-8 amber-gradient-text">
+                    O Nas: Inżynieria z Sercem Saaba
+                </h2>
+<div class="space-y-6 text-slate-300 font-light leading-relaxed text-base md:text-lg">
+<p>Oliwski Garaż narodził się z głębokiego szacunku i fascynacji dla inżynieryjnej doskonałości marki Saab. Jesteśmy miejscem, gdzie mechanika spotyka się ze sztuką, a każde auto traktowane jest z indywidualną uwagą i zrozumieniem jego unikalnego charakteru. To więcej niż warsztat – to przestrzeń dla prawdziwych entuzjastów szwedzkiej motoryzacji.</p>
+<p>Nasz zespół to wykwalifikowani specjaliści, którzy przez lata zdobywali doświadczenie w serwisowaniu i reanimowaniu Saabów, pogłębiając swoją wiedzę o ich specyficznej konstrukcji i wymaganiach. Wykorzystujemy tylko sprawdzone części i najnowocześniejsze narzędzia diagnostyczne, by zapewnić, że Twój pojazd opuści nasz garaż w pełni sprawny i gotowy na kolejne tysiące kilometrów.</p>
+</div>
+<div class="mt-10 p-6 rounded-2xl bg-steel-800/60 border border-amber-500/20 border-l-4 border-l-amber-500">
+<p class="italic text-slate-200 text-base font-light">Dla nas Saab to nie tylko samochód. To manifestacja innowacji, dbałości o szczegóły i niezwykłego ducha. Wierzymy, że zasługuje na opiekę, która rozumie tę filozofię.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 px-6 md:px-12 bg-steel-950 relative" id="oferta">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-amber-400 text-xs font-bold tracking-widest uppercase mb-2 block">Pełen Profesjonalizm</span>
+<h2 class="display-font text-3xl sm:text-5xl font-bold mb-4 amber-gradient-text">Nasze Usługi: Pełna Opieka nad Twoim Saabem</h2>
+<p class="text-slate-400 text-sm sm:text-base">Kompleksowy Serwis i Specjalistyczna Diagnostyka</p>
+</div>
+<div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Diagnostyka Systemów Saab</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Precyzyjne wykrywanie usterek z wykorzystaniem dedykowanych systemów Saab Tech 2 oraz najnowszych narzędzi diagnostycznych, gwarantujące trafną ocenę stanu pojazdu.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">od 150 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Kompleksowy Serwis Okresowy</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Przeglądy i konserwacja zgodne z rygorystycznymi wytycznymi producenta, obejmujące wymianę płynów, filtrów i kontrolę kluczowych podzespołów.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">od 450 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Naprawy Mechaniczne i Elektryczne</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Szeroki zakres usług od układu hamulcowego, zawieszenia, wydechowego, po skomplikowane naprawy silnika i elektroniki, zawsze z wykorzystaniem części o najwyższej jakości.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">od 200 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Renowacja Układów Napędowych</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Specjalistyczne naprawy skrzyń biegów manualnych i automatycznych, regeneracja turbosprężarek oraz odnowa podzespołów odpowiedzialnych za moc i dynamikę Twojego Saaba.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">od 800 zł</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black px-8 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl shadow-amber-500/25" href="tel:609 202 084">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>Zadzwoń do Warsztatu: 609 202 084</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Highlights Section -->
+<section class="py-24 px-6 md:px-12 bg-steel-900 border-y border-white/5" id="dlaczego-my">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-xl mx-auto mb-16">
+<h2 class="display-font text-3xl sm:text-4xl font-bold mb-4 amber-gradient-text">Gwarancja Spokoju</h2>
+<p class="text-slate-400 text-sm">Trzy zasady, którymi kierujemy się przy każdej naprawie</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="sparkles"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Specjalizacja Saab</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Jesteśmy jednym z nielicznych warsztatów w regionie, który w pełni poświęca się marce Saab, posiadając autentyczną pasję i głęboką wiedzę o każdym modelu.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="shield-check"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Lokalizacja Oliwa</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Dogodny dojazd i spokojna okolica Gdańskiej Oliwy sprawiają, że wizyta w naszym garażu to komfort i oszczędność Twojego czasu.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="award"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Indywidualne Podejście</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Nie traktujemy klientów i ich aut szablonowo. Każdy problem to dla nas nowe wyzwanie, do którego podchodzimy z pełnym zaangażowaniem i poszukiwaniem optymalnych rozwiązań.</p>
 </div>
 </div>
 </div>
 </section>
-<section class="features section-padding" id="about">
-<div class="container features-grid">
-<div class="features-text reveal">
-<h2>Dlaczego <span>Warto?</span></h2>
-<p style="color: #AAA;">W naszym studio traktujemy każdy samochód jak dzieło sztuki. Pracujemy wyłącznie na certyfikowanych produktach najwyższej klasy, w sterylnym i odpowiednio oświetlonym środowisku.</p>
-<ul class="feature-list">
-<li>Akredytowane studio Gtechniq / Xpel</li>
-<li>Wieloletnie doświadczenie z autami klasy Premium / Supercars</li>
-<li>Zamknięte, strzeżone i monitorowane studio 24/7</li>
-<li>Gwarancja jakości na każdą usługę</li>
-</ul>
-</div>
-<div class="features-img reveal">
-<img alt="Praca przy aucie" src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/>
+<!-- Footer -->
+<footer class="py-20 px-6 md:px-12 bg-black relative border-t border-white/10" id="kontakt">
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-16">
+<div>
+<h3 class="display-font text-2xl font-bold text-white mb-4">Oliwski Garaż Mechanika Pojazdowa Saab Serwis</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">W sercu Gdańskiej Oliwy, z pasją i precyzją, przywracamy blask i niezawodność każdemu Saabowi. Powierz nam swoje szwedzkie arcydzieło.</p>
+<div class="inline-flex items-center gap-2 text-xs text-slate-400">
+<i class="w-4 h-4 text-emerald-400" data-lucide="check-circle"></i>
+<span>Wizytówka Google Maps zweryfikowana</span>
 </div>
 </div>
-</section>
-<section id="gallery">
-<div class="gallery-grid">
-<div class="gallery-item"><img alt="Auto" src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&amp;w=2574&amp;auto=format&amp;fit=crop"/></div>
-<div class="gallery-item"><img alt="Auto" src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&amp;w=2574&amp;auto=format&amp;fit=crop"/></div>
-<div class="gallery-item"><img alt="Auto" src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/></div>
-<div class="gallery-item"><img alt="Auto" src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?q=80&amp;w=2671&amp;auto=format&amp;fit=crop"/></div>
+<div>
+<h4 class="font-bold text-white mb-4 tracking-wider uppercase text-xs">Adres i Godziny Pracy</h4>
+<div class="space-y-3 text-sm text-slate-300">
+<div class="flex items-start gap-3">
+<i class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" data-lucide="map-pin"></i>
+<span>Morenowa 6, 80-172 Gdańsk, Poland, Gdańsk</span>
 </div>
-</section>
-<footer id="contact">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-col">
-<h4>Oliwski Garaż Mechanika Pojazdowa Saab Serwis</h4>
-<p>Studio Auto Detailingu</p>
-<p style="color: var(--color-accent); margin-top: 1rem;">Odwiedź nas i poznaj wycenę dla Twojego auta.</p>
+<div class="flex items-center gap-3">
+<i class="w-5 h-5 text-amber-400 shrink-0" data-lucide="phone"></i>
+<a class="hover:text-amber-400 transition" href="tel:609 202 084">609 202 084</a>
 </div>
-<div class="footer-col">
-<h4>Kontakt</h4>
-<a href="tel:609 202 084">609 202 084</a>
-<a href="mailto:kontakt@{{ business_name | lower | replace(' ', '') }}.pl">kontakt@{{ business_name | lower | replace(' ', '') }}.pl</a>
-</div>
-<div class="footer-col">
-<h4>Adres</h4>
-<p>Morenowa 6, 80-172 Gdańsk, Poland</p>
-<p>Gdańsk [IRL Oliwa]</p>
-</div>
-<div class="footer-col">
-<h4>Godziny Otwarcia</h4>
-<p>Poniedziałek - Piątek: 08:00 - 18:00</p>
+<div class="flex items-center gap-3">
+<i class="w-5 h-5 text-amber-400 shrink-0" data-lucide="clock"></i>
+<span>Poniedziałek - Piątek: 08:00 - 18:00</span>
 </div>
 </div>
-<div class="footer-bottom">
-<p>© 2026 Oliwski Garaż Mechanika Pojazdowa Saab Serwis. Created by Agency.</p>
 </div>
+<div>
+<h4 class="font-bold text-white mb-4 tracking-wider uppercase text-xs">Przyjedź na Warsztat</h4>
+<p class="text-slate-400 text-sm mb-6">Zadzwoń wcześniej lub wyznacz trasę bezpośrednio do nas.</p>
+<div class="flex flex-col gap-3">
+<a class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white py-3 px-6 rounded-xl text-sm font-medium transition" href="https://maps.google.com/?cid=13444753922824314887" rel="noopener" target="_blank">
+<i class="w-4 h-4 text-emerald-400" data-lucide="navigation"></i>
+<span>Nawiguj do Warsztatu</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black py-3 px-6 rounded-xl text-sm font-bold transition" href="tel:609 202 084">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>Zadzwoń do Mechanika</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+<p>© 2026 Oliwski Garaż Mechanika Pojazdowa Saab Serwis. Wszelkie prawa zastrzeżone.</p>
+<p>Strona przygotowana przez <a class="text-amber-400 hover:underline" href="https://luaws.pl" target="_blank">LUA Web Solutions</a>.</p>
 </div>
 </footer>
+<!-- Mobile Floating Action Bar -->
+<div class="md:hidden fixed bottom-4 inset-x-4 z-50">
+<div class="bg-steel-950/95 backdrop-blur-2xl border border-amber-500/30 rounded-2xl p-2 shadow-2xl flex items-center justify-around gap-2 text-white">
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 transition text-center" href="tel:609 202 084">
+<i class="w-5 h-5 text-amber-400 mb-1" data-lucide="phone-call"></i>
+<span class="text-[11px] font-medium tracking-wide">Zadzwoń</span>
+</a>
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 transition text-center" href="https://maps.google.com/?cid=13444753922824314887" rel="noopener" target="_blank">
+<i class="w-5 h-5 text-emerald-400 mb-1" data-lucide="navigation"></i>
+<span class="text-[11px] font-medium tracking-wide">Dojazd</span>
+</a>
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 active:scale-95 transition text-center font-bold text-black" href="#oferta">
+<i class="w-5 h-5 text-black mb-1" data-lucide="wrench"></i>
+<span class="text-[11px] tracking-wide">Naprawy</span>
+</a>
+</div>
+</div>
+<!-- Init Lucide Icons -->
 <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuBtn.innerHTML = '☰';
-            });
-        });
-
-        const reveals = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach((reveal) => {
-                if (reveal.getBoundingClientRect().top < windowHeight - 100) {
-                    reveal.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
+        lucide.createIcons();
     </script>
 </body>
 </html>
