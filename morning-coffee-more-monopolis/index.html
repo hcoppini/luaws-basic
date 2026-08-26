@@ -1,304 +1,310 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
-<html lang="pl">
+<html class="scroll-smooth" lang="pl">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MORNING coffee &amp; more (Monopolis) | Specialty Coffee</title>
-<meta content="Najwyższa Jakość i Profesjonalizm Dla Ciebie w Mieście {{city}}" name="description"/>
+<title>MORNING coffee &amp; more (Monopolis) | Specialty Coffee Łódź</title>
+<meta content="Odkryj przestrzeń, gdzie każdy poranek staje się celebracją. Twoje miejsce na niezwykłe chwile, od pierwszej kawy po inspirujące spotkania w sercu Łodzi." name="description"/>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --color-bg: #FDFBF7; /* Warm light beige */
-            --color-text: #2B2118; /* Dark brown/black */
-            --color-accent: #C85A3C; /* Terracotta */
-            --color-secondary: #EADDCD; /* Soft warm wood/sand */
-            
-            --font-main: 'Outfit', sans-serif;
-            
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 8rem;
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- TailwindCSS & Lucide Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: {
+                            400: '#e07a5f',
+                            500: '#c85a3c',
+                            600: '#a34227',
+                        },
+                        crema: '#f4ede4',
+                        coffee: {
+                            800: '#231b15',
+                            900: '#17120e',
+                            950: '#0d0a08',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    </script>
+<style>
         body {
-            font-family: var(--font-main);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0d0a08;
+            color: #f4ede4;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
-        h1, h2, h3, h4 { font-weight: 500; line-height: 1.2; }
-        a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
-        img { max-width: 100%; display: block; object-fit: cover; border-radius: 4px; }
-
-        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-        .section-padding { padding: var(--spacing-xl) 0; }
-        .text-center { text-align: center; }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: var(--color-text);
-            color: var(--color-bg);
-            font-size: 1rem;
-            font-weight: 500;
-            border-radius: 30px;
-            border: 2px solid var(--color-text);
+        .display-font { font-family: 'Outfit', sans-serif; }
+        .coffee-card {
+            background: rgba(23, 18, 14, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(224, 122, 95, 0.15);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
-
-        .btn:hover { background-color: transparent; color: var(--color-text); }
-        .btn-outline { background-color: transparent; color: var(--color-text); }
-        .btn-outline:hover { background-color: var(--color-text); color: var(--color-bg); }
-
-        /* Navigation */
-        header {
-            position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0;
-            z-index: 100; transition: all 0.4s ease;
-            background: rgba(253, 251, 247, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(43, 33, 24, 0.05);
+        .coffee-card:hover {
+            border-color: rgba(224, 122, 95, 0.4);
+            transform: translateY(-2px);
         }
-
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-weight: 500; position: relative; }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
-            background-color: var(--color-accent); transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after { width: 100%; }
-
-        .mobile-menu-btn {
-            display: none; background: none; border: none; cursor: pointer;
-            font-size: 1.5rem; color: var(--color-text);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 90vh; display: flex; align-items: center; justify-content: center;
-            padding-top: 80px;
-        }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        
-        .hero-content { opacity: 0; transform: translateX(-30px); animation: slideIn 1s forwards; }
-        .hero-content h1 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1.5rem; letter-spacing: -1px; }
-        .hero-content p { font-size: 1.2rem; color: #666; margin-bottom: 2rem; max-width: 450px; }
-        
-        .hero-img {
-            position: relative;
-            opacity: 0; transform: translateX(30px); animation: slideIn 1s forwards 0.2s;
-        }
-        .hero-img img { border-radius: 20px; box-shadow: 20px 20px 0 var(--color-secondary); }
-
-        /* V60/Brew Guide Section */
-        .brew-section { background-color: var(--color-text); color: var(--color-bg); }
-        .brew-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .brew-text h2 { font-size: 3rem; margin-bottom: 1.5rem; color: var(--color-accent); }
-        .brew-text p { color: #ccc; margin-bottom: 1.5rem; font-size: 1.1rem; }
-        .brew-img img { border-radius: 200px 200px 0 0; }
-
-        /* Menu */
-        .menu-section { background-color: var(--color-bg); }
-        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .menu-col h3 { font-size: 2rem; margin-bottom: 2rem; color: var(--color-accent); }
-        
-        .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; border-bottom: 1px dashed rgba(43,33,24,0.1); padding-bottom: 0.5rem; }
-        .menu-item-name { font-weight: 500; font-size: 1.1rem; }
-        .menu-item-price { font-weight: 700; }
-        
-        /* Beans */
-        .beans-section { background-color: var(--color-secondary); border-radius: 40px; margin: 0 2rem; padding: 4rem 2rem; text-align: center; }
-        .beans-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .beans-section p { max-width: 600px; margin: 0 auto 2rem; color: #555; }
-        
-        /* Footer */
-        footer { padding: 6rem 0 2rem; text-align: center; }
-        .footer-logo { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
-        .footer-info { display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem; color: #666; flex-wrap: wrap; }
-        .footer-info div { display: flex; flex-direction: column; gap: 0.5rem; }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero-grid, .brew-grid, .menu-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-content { order: 2; text-align: center; }
-            .hero-content p { margin: 0 auto 2rem; }
-            .hero-img { order: 1; }
-            .brew-img img { border-radius: 20px; }
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-                background-color: var(--color-bg); flex-direction: column; justify-content: center;
-                transition: right 0.4s ease;
-            }
-            .nav-links.active { right: 0; }
-            .mobile-menu-btn { display: block; z-index: 101; }
-            .beans-section { margin: 0 1rem; border-radius: 20px; }
-            .footer-info { flex-direction: column; gap: 2rem; }
+        .warm-gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #f4ede4 50%, #e07a5f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
-<header>
-<div class="container nav-inner">
-<a class="logo" href="#">MORNING coffee &amp; more (Monopolis)</a>
-<nav class="nav-links" id="navLinks">
-<a href="#about">Nasza Kawa</a>
-<a href="#menu">Menu</a>
-<a href="#beans">Ziarna</a>
-<a href="#contact">Kontakt</a>
+<body class="selection:bg-terracotta-500 selection:text-white">
+<!-- Demonstration Header -->
+<div class="bg-gradient-to-r from-stone-900 via-coffee-950 to-stone-900 border-b border-terracotta-500/20 text-stone-300 text-xs py-2 px-4 sticky top-0 z-[60] backdrop-blur-md">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<span class="flex items-center gap-2">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-terracotta-500"></span>
+</span>
+<span>Projekt demonstracyjny dla: <strong>MORNING coffee &amp; more (Monopolis)</strong></span>
+</span>
+<a class="hidden sm:inline-flex items-center gap-1.5 bg-terracotta-500 hover:bg-terracotta-400 text-white px-4 py-1 rounded-full text-xs font-semibold transition shadow-lg shadow-terracotta-500/20" href="https://buy.stripe.com/28E28qdJo6VicXYgGgc7u06">
+<span>Kupuję stronę (500 PLN + 75 PLN/mies.)</span>
+<i class="w-3.5 h-3.5" data-lucide="arrow-right"></i>
+</a>
+</div>
+</div>
+<!-- Navigation -->
+<header class="sticky top-[33px] z-50 bg-coffee-950/85 backdrop-blur-xl border-b border-white/5 py-4 px-6 md:px-12">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<a class="display-font text-2xl font-bold tracking-tight text-white flex items-center gap-2" href="#">
+<i class="w-6 h-6 text-terracotta-400" data-lucide="coffee"></i>
+<span>MORNING coffee &amp; more (Monopolis)</span>
+</a>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-300">
+<a class="hover:text-terracotta-400 transition" href="#o-nas">O Kawiarni</a>
+<a class="hover:text-terracotta-400 transition" href="#oferta">Karta &amp; Ziarna</a>
+<a class="hover:text-terracotta-400 transition" href="#dlaczego-my">Dlaczego My</a>
+<a class="hover:text-terracotta-400 transition" href="#kontakt">Godziny &amp; Dojazd</a>
 </nav>
-<button class="mobile-menu-btn" id="menuBtn">☰</button>
+<a class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/15 px-5 py-2 rounded-full text-xs md:text-sm font-medium transition" href="tel:574 196 323">
+<i class="w-4 h-4 text-terracotta-400" data-lucide="phone"></i>
+<span>574 196 323</span>
+</a>
 </div>
 </header>
-<section class="hero">
-<div class="container hero-grid">
-<div class="hero-content">
-<h1>Kawa to nasza rzemieślnicza pasja.</h1>
-<p>Najwyższa Jakość i Profesjonalizm Dla Ciebie w Mieście {{city}}</p>
-<a class="btn" href="#menu">Zobacz Menu</a>
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center justify-center py-20 px-6 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="MORNING coffee &amp; more (Monopolis)" class="w-full h-full object-cover brightness-[0.22] scale-105 transform duration-1000" src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-coffee-950 via-coffee-950/60 to-transparent"></div>
 </div>
-<div class="hero-img">
-<img alt="Barista przygotowujący kawę" src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&amp;w=2671&amp;auto=format&amp;fit=crop"/>
+<div class="relative z-10 max-w-3xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-terracotta-500/15 border border-terracotta-500/30 text-terracotta-400 text-xs md:text-sm font-medium mb-6 backdrop-blur-md">
+<i class="w-4 h-4" data-lucide="sparkles"></i>
+<span>Twój Poranek w Monopolis - Łódź</span>
 </div>
-</div>
-</section>
-<section class="brew-section section-padding" id="about">
-<div class="container brew-grid">
-<div class="brew-img reveal">
-<img alt="Drip coffee" src="https://images.unsplash.com/photo-1495474472207-464a8d4ce69d?q=80&amp;w=2574&amp;auto=format&amp;fit=crop"/>
-</div>
-<div class="brew-text reveal">
-<h2>Specialty. Bez kompromisów.</h2>
-<p>Wybieramy ziarna z najlepszych palarni w Europie. Zwracamy uwagę na pochodzenie, obróbkę i profil sensoryczny. Każda filiżanka to efekt precyzji i szacunku do produktu.</p>
-<p>Od idealnie zbalansowanego espresso po owocowe i herbaciane napary z dripa i aeropressu. Przyjdź i porozmawiaj z naszymi baristami o kawie.</p>
-</div>
-</div>
-</section>
-<section class="menu-section section-padding" id="menu">
-<div class="container">
-<div class="text-center reveal" style="margin-bottom: 4rem;">
-<h2>Klasyki &amp; Alternatywy</h2>
-</div>
-<div class="menu-grid reveal">
-<div class="menu-col">
-<h3>Espresso Bar</h3>
-<div class="menu-item">
-<span class="menu-item-name">Espresso / Doppio</span>
-<span class="menu-item-price">10 / 13 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Flat White</span>
-<span class="menu-item-price">16 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Cappuccino</span>
-<span class="menu-item-price">15 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Latte</span>
-<span class="menu-item-price">17 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Tonic Espresso</span>
-<span class="menu-item-price">19 zł</span>
-</div>
-</div>
-<div class="menu-col">
-<h3>Przelew / Brew Bar</h3>
-<div class="menu-item">
-<span class="menu-item-name">Drip V60</span>
-<span class="menu-item-price">18 - 22 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Aeropress</span>
-<span class="menu-item-price">17 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Chemex (dla dwojga)</span>
-<span class="menu-item-price">28 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Batch Brew</span>
-<span class="menu-item-price">14 zł</span>
-</div>
-<div class="menu-item">
-<span class="menu-item-name">Cold Brew</span>
-<span class="menu-item-price">16 zł</span>
-</div>
-</div>
+<h1 class="display-font text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.15] mb-6 warm-gradient-text">
+                Poranek Nowej Ery: Kawa i Smaki w Monopolis
+            </h1>
+<p class="text-stone-300 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto mb-10">
+                Odkryj przestrzeń, gdzie każdy poranek staje się celebracją. Twoje miejsce na niezwykłe chwile, od pierwszej kawy po inspirujące spotkania w sercu Łodzi.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-terracotta-500 hover:bg-terracotta-400 text-white px-8 py-4 rounded-full font-bold text-sm transition shadow-xl shadow-terracotta-500/25" href="#oferta">
+<span>Zobacz Kartę</span>
+<i class="w-4 h-4" data-lucide="arrow-down"></i>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/15 px-8 py-4 rounded-full font-semibold text-sm transition backdrop-blur-md" href="tel:574 196 323">
+<i class="w-4 h-4" data-lucide="phone"></i>
+<span>Zaplanuj Swój Poranek</span>
+</a>
 </div>
 </div>
 </section>
-<section class="section-padding" id="beans">
-<div class="beans-section reveal">
-<h2>Pij dobrą kawę w domu</h2>
-<p>Na naszych półkach znajdziesz świeżo palone ziarna pod espresso i pod filtry od zaprzyjaźnionych palarni, a także akcesoria do parzenia.</p>
-<a class="btn btn-outline" href="#contact">Odwiedź Nas</a>
+<!-- About Section -->
+<section class="py-24 px-6 md:px-12 bg-coffee-900 relative" id="o-nas">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
+<img alt="Klimat kawiarni" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1495474472205-188b901b04ce?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"/>
 </div>
-</section>
-<footer id="contact">
-<div class="container">
-<div class="footer-logo"><img alt="Logo" src="/images/icons/FBLogo_Blueprint.png" style="height:40px; border-radius: 50%;"/></div>
-<div class="footer-info">
-<div>
-<strong>Adres</strong>
-<span>Dr. Stefana Kopcińskiego 62, 90-032 Łódź, Poland</span>
-<span>Łódź [IRL Górna]</span>
+<div class="absolute -bottom-6 -right-6 hidden sm:block p-6 coffee-card rounded-2xl max-w-xs shadow-2xl">
+<div class="flex items-center gap-2 text-terracotta-400 mb-1 font-bold text-sm">
+<i class="w-5 h-5" data-lucide="flame"></i>
+<span>Rzemieślnicze Wypieki</span>
+</div>
+<p class="text-xs text-stone-300">Świeże składniki i receptury przygotowywane codziennie z pasją.</p>
+</div>
 </div>
 <div>
-<strong>Godziny</strong>
+<span class="text-terracotta-400 text-xs font-bold tracking-widest uppercase mb-3 block">O Naszej Kawiarni</span>
+<h2 class="display-font text-3xl sm:text-4xl md:text-5xl font-bold mb-8 warm-gradient-text">
+                    O Naszej Filozofii Poranka
+                </h2>
+<div class="space-y-6 text-stone-300 font-light leading-relaxed text-base md:text-lg">
+<p>W MORNING wierzymy, że każdy dzień zasługuje na niezwykły początek. To dlatego stworzyliśmy miejsce, gdzie rytuał picia kawy i delektowania się śniadaniem staje się chwilą prawdziwego wytchnienia i inspiracji. Pragniemy, aby nasza przestrzeń w tętniącym życiem Monopolis była Twoją oazą, gdzie jakość spotyka się z autentycznością, a uśmiech jest równie ważny jak aromat świeżo parzonej kawy.</p>
+<p>Nasza pasja do doskonałości przejawia się w każdym detalu. Od starannie selekcjonowanych ziaren kawy z rzemieślniczych palarni, przez świeże, lokalne składniki w naszych wypiekach i daniach, po zaangażowany zespół baristów i kucharzy, którzy z miłością tworzą smaki. W MORNING każda filiżanka i każde danie to obietnica niezapomnianych wrażeń, przygotowanych z myślą o Tobie i Twoim dobrym dniu.</p>
+</div>
+<div class="mt-10 p-6 rounded-2xl bg-coffee-800/60 border border-terracotta-500/20 border-l-4 border-l-terracotta-500">
+<p class="italic text-stone-200 text-base font-light">Najlepszy dzień zaczyna się od świadomego poranka. Wierzymy, że w MORNING każdy go odnajdzie. – Zespół MORNING coffee &amp; more</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Offer / Menu Section -->
+<section class="py-24 px-6 md:px-12 bg-coffee-950 relative" id="oferta">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-terracotta-400 text-xs font-bold tracking-widest uppercase mb-2 block">Karta Kawiarni</span>
+<h2 class="display-font text-3xl sm:text-5xl font-bold mb-4 warm-gradient-text">Karta Smaków MORNING</h2>
+<p class="text-stone-400 text-sm sm:text-base">Od aromatycznej kawy po wykwintne śniadania i lekkie lunche – wszystko, by Twój dzień rozpoczął się wyśmienicie.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Kawa MORNING Signature Blend</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Starannie wyselekcjonowana mieszanka ziaren, palona dla nas z myślą o idealnym początku dnia. Głęboki aromat, aksamitna crema. (np. Flat White/Cappuccino)</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">16 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Jajka Benedyktyńskie z Awokado i Szynką Parmeńską</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Klasyka w nowoczesnym wydaniu. Dwa jajka w koszulce, kremowe awokado, chrupiąca szynka Parmeńska na chałce, holenderski sos cytrusowy.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">38 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Bowl Śniadaniowy 'Monopolis'</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Superfoods na dobry początek: jogurt grecki, domowa granola, świeże owoce sezonowe, orzechy i miód lawendowy.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">29 zł</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex justify-between items-start gap-4 transition hover:-translate-y-1">
+<div>
+<h3 class="text-lg md:text-xl font-bold text-white mb-2">Chałka z Domową Konfiturą i Serem Ricotta</h3>
+<p class="text-sm text-slate-300 font-light leading-relaxed">Puszysta chałka, delikatny ser ricotta, sezonowa konfitura własnej roboty. Słodki akcent na każdą porę dnia.</p>
+</div>
+<div class="text-base md:text-lg font-bold text-amber-400 shrink-0 whitespace-nowrap">22 zł</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a class="inline-flex items-center gap-2 bg-terracotta-500 hover:bg-terracotta-400 text-white px-8 py-4 rounded-full font-bold text-sm transition shadow-xl shadow-terracotta-500/25" href="tel:574 196 323">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>Zadzwoń do nas: 574 196 323</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Highlights Section -->
+<section class="py-24 px-6 md:px-12 bg-coffee-900 border-y border-white/5" id="dlaczego-my">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-xl mx-auto mb-16">
+<h2 class="display-font text-3xl sm:text-4xl font-bold mb-4 warm-gradient-text">Co Nas Wyróżnia</h2>
+<p class="text-stone-400 text-sm">Trzy filary naszej codziennej pracy dla naszych gości</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="sparkles"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Sztuka Parzenia Kawy</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Nasi bariści to prawdziwi rzemieślnicy, którzy z pasją tworzą każdą filiżankę, dbając o idealne proporcje i wydobywając pełnię smaku z najlepszych ziaren.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="shield-check"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Smaki z Serca Łodzi</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Wspieramy lokalnych dostawców, bazując na świeżych, sezonowych składnikach, aby nasze śniadania, lunche i wypieki były zawsze najwyższej jakości i autentycznego smaku.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl">
+<div class="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 mb-6">
+<i class="w-6 h-6" data-lucide="award"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Oaza w Monopolis</h3>
+<p class="text-slate-300 text-sm font-light leading-relaxed">Wnętrze inspirowane postindustrialną elegancją Monopolis, stworzone z myślą o komforcie i inspiracji. Idealne miejsce na pracę, spotkanie czy chwilę dla siebie.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-20 px-6 md:px-12 bg-black relative border-t border-white/10" id="kontakt">
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-16">
+<div>
+<h3 class="display-font text-2xl font-bold text-white mb-4">MORNING coffee &amp; more (Monopolis)</h3>
+<p class="text-stone-400 text-sm leading-relaxed mb-6">Odkryj przestrzeń, gdzie każdy poranek staje się celebracją. Twoje miejsce na niezwykłe chwile, od pierwszej kawy po inspirujące spotkania w sercu Łodzi.</p>
+<div class="inline-flex items-center gap-2 text-xs text-stone-400">
+<i class="w-4 h-4 text-emerald-400" data-lucide="check-circle"></i>
+<span>Wizytówka Google Maps zweryfikowana</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-white mb-4 tracking-wider uppercase text-xs">Godziny i Lokalizacja</h4>
+<div class="space-y-3 text-sm text-stone-300">
+<div class="flex items-start gap-3">
+<i class="w-5 h-5 text-terracotta-400 shrink-0 mt-0.5" data-lucide="map-pin"></i>
+<span>Dr. Stefana Kopcińskiego 62, 90-032 Łódź, Poland, Łódź</span>
+</div>
+<div class="flex items-center gap-3">
+<i class="w-5 h-5 text-terracotta-400 shrink-0" data-lucide="phone"></i>
+<a class="hover:text-terracotta-400 transition" href="tel:574 196 323">574 196 323</a>
+</div>
+<div class="flex items-center gap-3">
+<i class="w-5 h-5 text-terracotta-400 shrink-0" data-lucide="clock"></i>
 <span>Poniedziałek - Piątek: 08:00 - 18:00</span>
 </div>
+</div>
+</div>
 <div>
-<strong>Kontakt</strong>
-<span>574 196 323</span>
-<span>hello@{{ business_name | lower | replace(' ', '') }}.pl</span>
+<h4 class="font-bold text-white mb-4 tracking-wider uppercase text-xs">Odwiedź Nas</h4>
+<p class="text-stone-400 text-sm mb-6">Wpadnij na poranną kawę lub spotkanie ze znajomymi.</p>
+<div class="flex flex-col gap-3">
+<a class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white py-3 px-6 rounded-xl text-sm font-medium transition" href="https://maps.google.com/?cid=12929402450953309414" rel="noopener" target="_blank">
+<i class="w-4 h-4 text-emerald-400" data-lucide="navigation"></i>
+<span>Nawiguj w Google Maps</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 bg-terracotta-500 hover:bg-terracotta-400 text-white py-3 px-6 rounded-xl text-sm font-bold transition" href="tel:574 196 323">
+<i class="w-4 h-4" data-lucide="phone-call"></i>
+<span>Zadzwoń do Kawiarni</span>
+</a>
 </div>
 </div>
-<div style="font-size: 0.8rem; color: #999;">© 2026 MORNING coffee &amp; more (Monopolis). Created by Agency.</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+<p>© 2026 MORNING coffee &amp; more (Monopolis). Wszelkie prawa zastrzeżone.</p>
+<p>Projekt zrealizowany przez <a class="text-terracotta-400 hover:underline" href="https://luaws.pl" target="_blank">LUA Web Solutions</a>.</p>
 </div>
 </footer>
+<!-- Mobile Floating Action Bar -->
+<div class="md:hidden fixed bottom-4 inset-x-4 z-50">
+<div class="bg-coffee-950/95 backdrop-blur-2xl border border-terracotta-500/30 rounded-2xl p-2 shadow-2xl flex items-center justify-around gap-2 text-white">
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 transition text-center" href="tel:574 196 323">
+<i class="w-5 h-5 text-terracotta-400 mb-1" data-lucide="phone-call"></i>
+<span class="text-[11px] font-medium tracking-wide">Zadzwoń</span>
+</a>
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 active:scale-95 transition text-center" href="https://maps.google.com/?cid=12929402450953309414" rel="noopener" target="_blank">
+<i class="w-5 h-5 text-emerald-400 mb-1" data-lucide="navigation"></i>
+<span class="text-[11px] font-medium tracking-wide">Dojazd</span>
+</a>
+<a class="flex-1 flex flex-col items-center py-2 px-3 rounded-xl bg-terracotta-500 hover:bg-terracotta-400 active:scale-95 transition text-center font-bold text-white" href="#oferta">
+<i class="w-5 h-5 text-white mb-1" data-lucide="coffee"></i>
+<span class="text-[11px] tracking-wide">Karta</span>
+</a>
+</div>
+</div>
+<!-- Init Lucide Icons -->
 <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuBtn.innerHTML = '☰';
-            });
-        });
-
-        const reveals = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            reveals.forEach((reveal) => {
-                if (reveal.getBoundingClientRect().top < windowHeight - 100) {
-                    reveal.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
+        lucide.createIcons();
     </script>
 </body>
 </html>
